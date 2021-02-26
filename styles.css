@@ -14,6 +14,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
     font-size: 1em;
     text-transform: uppercase;
     border-bottom: 1px solid grey;
@@ -66,63 +68,12 @@ body {
 }
 
 .searchbar input[type=text] {
-    font-size: 28px;
+    font-size: 2em;
 }
 
 .searchbar button {
-    font-size: 28px;
+    font-size: 2em;
     cursor: pointer;
-}
-
-/* .items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 10px;
-}
-
-.item {
-    position: relative;
-}
-
-.img {
-    height: 350px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.img-text {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-} */
-
-.logo img {
-    width: 50%;
-    margin-bottom: 20px;
-}
-
-.img-text .subtitle a {
-    transition: 0.5s;
-    font-weight: 600;
-    color: transparent;
-}
-
-.img-text:hover .subtitle a {
-    font-weight: 600;
-    color: lightseagreen;
-}
-
-.img-darken {
-    transition: 0.5s;
-    filter: brightness(10%);
 }
 
 .active {

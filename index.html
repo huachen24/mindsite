@@ -30,19 +30,19 @@
 
         <div class="content">
             <div class="banner">
-                <img src="images/bgimage.png">
+                <img src="images/MindSite_Main.png">
             </div>
             <div class="searchbar">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search illness...">
-                    <button type="submit">Search Mindsite</button>
+                <form action="search.php" method="get">
+                    <input type="text" placeholder="Search illness..." name="search_query" size="40">
+                    <button type="submit">Search</button>
                 </form>
             </div>
         </div>
 
     </div>
 </body>
-<script>
+<!-- <script>
     const items = document.querySelectorAll('.item')
     items.forEach(i => {
         i.addEventListener('mouseover', () => {
@@ -52,5 +52,5 @@
             i.childNodes[1].classList.remove('img-darken');
         })
     });
-</script>
+</script> -->
 </html>
