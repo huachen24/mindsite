@@ -22,6 +22,17 @@ body {
     border-bottom: 1px solid grey;
 }
 
+.navbar2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    font-size: 1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid grey;
+}
+
 .link {
     height: 22px;
     border-bottom: 1px solid transparent;
@@ -45,6 +56,15 @@ body {
 /****************/
 /**** SEARCH ****/
 /****************/
+
+.resource {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
 
 .content {
     height: 100%;
