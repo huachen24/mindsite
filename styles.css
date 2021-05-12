@@ -136,3 +136,51 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+/*****************/
+/**** Results ****/
+/*****************/
+
+.resource-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.resource {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.resource-img {
+    height: 100px;
+    width: 100px;
+    align-content: center;
+    padding: 10px;
+}
+
+.resource-details {
+    padding: 10px;
+    align-content: left;
+}
+
+.resource-details h3 {
+    margin: 0;
+    padding: 5px;
+}
+
+.resource-details p {
+    margin: 0;
+    padding: 5px;
+}
+
+#profile {
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+}
