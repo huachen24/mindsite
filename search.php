@@ -2,27 +2,6 @@
     include 'header.php';
 ?>
 
-<div class="navbar">
-    <div class="link">
-        <a href="index.php">Home</a>
-    </div>
-    <div class="link active">
-        <a href="resources.php">Resources</a>
-    </div>
-    <div class="link">
-        <a href="about.html">About</a>
-    </div>
-    <div class="link">
-        <a href="contribute.html">Contribute</a>
-    </div>
-    <div class="link">
-        <a href="feedback.html">Feedback</a>
-    </div>
-    <div class="link">
-        <a href="contact.html">Contact Us</a>
-    </div>
-</div>
-
 <div class="searchbar">
     <form method="GET" action="search.php">
         <input type="text" placeholder="Search database" name="search" size="40">
@@ -48,10 +27,17 @@
                         echo "<div class='resource-img'><img id='profile' src='profiles/default.png'></div>";
                     }
                     echo "<div class='resource-details'>
-                            <h3>".$row['title']."</h3>
+                            <h3 onclick='on(".$row['rid'].")'>".$row['title']."</h3>
                             <p>".$row['address']."</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque, eros vel facilisis vehicula, neque dui commodo ex, vel pulvinar mi enim in quam. Nam nisi est, molestie porta quam quis, scelerisque tristique ligula. Aliquam et leo porta, porttitor velit nec, mollis velit. Maecenas a hendrerit diam. Proin feugiat dolor in augue efficitur aliquam. In scelerisque orci et tristique finibus. Duis aliquam in tellus at ornare. In a tempus quam, sollicitudin sagittis eros. Ut in porta ligula, at viverra lorem.</p>
+                            <p>".$row['description']."</p>
                             </div>";
+                    echo "</div>";
+                    echo "<div id='overlay-".$row['rid']."' onclick='off(".$row['rid'].")'>";
+                    echo "<div id='overlaytext'>";
+                        echo "<h3><a href='".$row['weblink']."'>".$row['title']."</a></h3>
+                        <p>".$row['address']."</p>
+                        <p>".$row['description']."</p>";
+                    echo "</div>";
                     echo "</div>";
                 }
             } else {
@@ -63,5 +49,17 @@
     ?>
 </div>
 
+</div>
 </body>
+
+<script>
+    function on(rid) {
+        document.getElementById("overlay-"+rid).style.display = "flex";
+    }
+
+    function off(rid) {
+        document.getElementById("overlay-"+rid).style.display = "none";
+    }
+</script>
+
 </html>
