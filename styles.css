@@ -69,14 +69,12 @@ body {
     width: 50%;
 }
 
-
 .resource::after {
     display: table;
     content: "";
     clear: both;
     margin-left: 30px;
 }
-
 
 .content {
     height: 100%;
@@ -110,7 +108,7 @@ body {
     font-size: 2em;
 }
 
-.search-button {
+.searchbutton {
     font-size: 2em;
     cursor: pointer;
 }
@@ -137,9 +135,26 @@ body {
     padding-bottom: 20px;
 }
 
-/*****************/
-/**** Results ****/
-/*****************/
+/*******************/
+/**** Resources ****/
+/*******************/
+
+.resultsearchbar {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultsearchbar input[type=text] {
+    font-size: 1.5em;
+}
+
+.resultsearchbutton {
+    font-size: 1.5em;
+    cursor: pointer;
+}
 
 .resource-container {
     width: 100%;
@@ -151,7 +166,7 @@ body {
 
 .resource {
     height: 100%;
-    width: 80%;
+    width: 60%;
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -178,6 +193,12 @@ body {
 .resource-details p {
     margin: 0;
     padding: 5px;
+    text-align: justify;
+}
+
+.keywords {
+    display: inline;
+    background-color: aliceblue;
 }
 
 #profile {
@@ -209,6 +230,7 @@ div[id^='overlay-'] {
     width: 60%;
     margin: auto;
     color: white;
+    text-align: justify;
 }
 
 #overlaytext a {

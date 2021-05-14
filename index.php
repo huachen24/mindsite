@@ -8,7 +8,7 @@
         <div class="searchbar">
             <form method="GET" action="search.php">
                 <input type="text" placeholder="Search database" name="search" size="40">
-                <input class="search-button" type="submit" value="Search">
+                <input class="searchbutton" type="submit" value="Search">
             </form>
         </div>
     </div>
