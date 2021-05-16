@@ -1,6 +1,8 @@
 /*************/
 /**** ALL ****/
 /*************/
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC);
 body {
     margin: 0px;
 }
@@ -29,6 +31,7 @@ body {
     padding-left: 70px;
     padding-right: 70px;
     font-size: 1em;
+    font-family: Noto Sans SC;
     text-transform: uppercase;
     border-bottom: 1px solid grey;
 }
@@ -148,11 +151,18 @@ body {
 }
 
 .resultsearchbar input[type=text] {
-    font-size: 1.5em;
+    font-size: 1.25em;
+    font-family: Varela Round;
+    border-radius:20px;
+    border: 2px solid Grey;
 }
-
 .resultsearchbutton {
-    font-size: 1.5em;
+    font-size: 1em;
+    font-family: Varela Round;
+    color: White;
+    border-radius:20px;
+    background-color:DarkSlateBlue;
+    width=120%;
     cursor: pointer;
 }
 
