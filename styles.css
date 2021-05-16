@@ -145,6 +145,7 @@ body {
 .resultsearchbar {
     width: 100%;
     margin: 10px;
+    padding-top: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,9 +153,11 @@ body {
 
 .resultsearchbar input[type=text] {
     font-size: 1.25em;
+    text-indent: 0.25em;
     font-family: Varela Round;
     border-radius:20px;
     border: 2px solid Grey;
+    
 }
 .resultsearchbutton {
     font-size: 1em;
@@ -162,8 +165,9 @@ body {
     color: White;
     border-radius:20px;
     background-color:DarkSlateBlue;
-    width=120%;
+    height:30px;
     cursor: pointer;
+    vertical-align: top;
 }
 
 .resource-container {
