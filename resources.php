@@ -14,12 +14,20 @@
     <?php
         $sql = "SELECT * FROM resources";
         $result = mysqli_query($conn, $sql);
-        $queryResult = mysqli_num_rows($result);
-
-        if ($queryResult > 0) {
-            include 'listresources.php';
+        if ($result == FALSE) {
+            echo "<h1>There are no resources at the moment!</h1>";
         } else {
-            echo "<h1>There are no results matching your search!</h1>";
+            $queryResult = mysqli_num_rows($result);
+
+            if ($queryResult > 0) {
+                $all_resources = array();
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $all_resources[] = $row;
+                }
+                include 'listresources.php';
+            } else {
+                echo "<h1>There are no resources at the moment!</h1>";
+            }
         }
     ?>
 </div>

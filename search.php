@@ -15,13 +15,21 @@
             $search = mysqli_real_escape_string($conn, $_GET['search']);
             $sql = "SELECT * FROM resources WHERE keywords LIKE '%$search%' OR title LIKE '%$search%'";
             $result = mysqli_query($conn, $sql);
-            $queryResult = mysqli_num_rows($result);
-
-            if ($queryResult > 0) {
-                echo "<h1 align-content='left'>Showing results for ".$search.":</h1>";
-                include 'listresources.php';
-            } else {
+            if ($result == FALSE) {
                 echo "<h1>There are no results matching your search!</h1>";
+            } else {
+                $queryResult = mysqli_num_rows($result);
+
+                if ($queryResult > 0) {
+                    $all_resources = array();
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $all_resources[] = $row;
+                    }
+                    echo "<h1 align-content='left'>Showing results for ".$search.":</h1>";
+                    include 'listresources.php';
+                } else {
+                    echo "<h1>There are no results matching your search!</h1>";
+                }
             }
         } else {
             header("Location: ../SYNC/resources.php");

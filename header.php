@@ -15,5 +15,8 @@
 <div class="container">
 
 <?php
+    $perpage = 10;
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $resource_offset = ($current_page-1)*$perpage;
     include 'navbar.php';
 ?>

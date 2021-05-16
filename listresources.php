@@ -1,24 +1,50 @@
 <?php
-    while ($row = mysqli_fetch_assoc($result)) {
+    $current_resources = array_slice($all_resources, $resource_offset, $perpage);
+    foreach ($current_resources as $resource) {
         echo "<div class='resource'>";
-        if ($row['image'] == 1) {
-            echo "<div class='resource-img'><img id='profile' src='profiles/".$row['rid'].".png'></div>";
+        if ($resource['image'] == 1) {
+            echo "<div class='resource-img'><img id='profile' src='profiles/".$resource['rid'].".png'></div>";
         } else {
             echo "<div class='resource-img'><img id='profile' src='profiles/default.png'></div>";
         }
         echo "<div class='resource-details'>
-                <h3 onclick='on(".$row['rid'].")'>".$row['title']."</h3>
-                <p class='keywords'>".$row['keywords']."</p>
-                <p>".$row['shortdesc']."</p>
+                <h3 onclick='on(".$resource['rid'].")'>".$resource['title']."</h3>
+                <p class='keywords'>".$resource['keywords']."</p>
+                <p>".$resource['shortdesc']."</p>
                 </div>";
         echo "</div>";
-        echo "<div id='overlay-".$row['rid']."' onclick='off(".$row['rid'].")'>";
+        echo "<div id='overlay-".$resource['rid']."' onclick='off(".$resource['rid'].")'>";
         echo "<div id='overlaytext'>";
-            echo "<h3><a href='".$row['weblink']."'>".$row['title']."</a></h3>
-            <p>".$row['price']."</p>
-            <p>".$row['address']."</p>
-            <p>".$row['longdesc']."</p>";
+            echo "<h3><a href='".$resource['weblink']."'>".$resource['title']."</a></h3>
+            <p>".$resource['price']."</p>
+            <p>".$resource['address']."</p>
+            <p>".$resource['longdesc']."</p>";
         echo "</div>";
         echo "</div>";
+    }
+    echo "<div class='pagebar'>";
+    if ($current_page > 1) {
+        echo "<a href='".generate_url($current_page-1)."'>Prev</a>";
+    }
+    $total_pages = ceil(sizeof($all_resources)/$perpage);
+    for ($i=1; $i<=$total_pages; $i++) {
+        if ($i == $current_page) {
+            if ($total_pages > 1) {
+                echo "<a>".$current_page."</a>";
+            }
+        } else {
+            echo "<a href='".generate_url($i)."'>".$i."</a>";
+        }
+    }
+    if ($current_page < $total_pages) {
+        echo "<a href='".generate_url($current_page+1)."'>Next</a>";
+    }
+    echo "</div>";
+
+    function generate_url($i) {
+        $params = $_GET;
+        unset($params['page']);
+        $params['page'] = $i;
+        return basename($_SERVER['PHP_SELF']).'?'.http_build_query($params);
     }
 ?>

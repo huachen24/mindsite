@@ -236,3 +236,16 @@ div[id^='overlay-'] {
 #overlaytext a {
     color: white;
 }
+
+/*****************/
+/**** Pagebar ****/
+/*****************/
+
+.pagebar {
+    position: relative;
+}
+
+.pagebar a {
+    font-size: 1.75em;
+    margin: 20px 10px 0px;
+}
