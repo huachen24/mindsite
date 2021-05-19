@@ -162,6 +162,7 @@ body {
 .resultsearchbutton {
     font-size: 1em;
     font-family: Varela Round;
+    text-transform: lowercase; 
     color: White;
     border-radius:20px;
     background-color:DarkSlateBlue;
@@ -202,17 +203,24 @@ body {
     margin: 0;
     padding: 5px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-family: Noto Sans SC;
+    color:DarkSlateBlue;
 }
 
 .resource-details p {
     margin: 0;
     padding: 5px;
+    font-family: Varela Round; 
     text-align: justify;
 }
 
 .keywords {
     display: inline;
-    background-color: aliceblue;
+    background-color: LightSalmon;
+    color: white;
+    border-radius: 20px;
+    font-family: Varela Round;
 }
 
 #profile {
@@ -245,10 +253,13 @@ div[id^='overlay-'] {
     margin: auto;
     color: white;
     text-align: justify;
+    font-family: Varela Round;
 }
 
 #overlaytext a {
     color: white;
+    font-family: Noto Sans SC;
+    font-size: 1.25em;
 }
 
 /*****************/
