@@ -109,11 +109,20 @@ body {
 
 .searchbar input[type=text] {
     font-size: 2em;
+    text-indent: 0.5em;
+    font-family: Varela Round;
+    border-radius:20px;
+    border: 2px solid Grey;
 }
 
 .searchbutton {
     font-size: 2em;
     cursor: pointer;
+    font-family: Varela Round;
+    text-transform: lowercase; 
+    color: White;
+    border-radius:20px;
+    background-color:Teal;
 }
 
 .active {
@@ -165,7 +174,7 @@ body {
     text-transform: lowercase; 
     color: White;
     border-radius:20px;
-    background-color:DarkSlateBlue;
+    background-color:Teal;
     height:30px;
     cursor: pointer;
     vertical-align: top;
@@ -205,7 +214,7 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     font-family: Noto Sans SC;
-    color:DarkSlateBlue;
+    color:Teal;
 }
 
 .resource-details p {
@@ -217,7 +226,7 @@ body {
 
 .keywords {
     display: inline;
-    background-color: LightSalmon;
+    background-color: MediumTurquoise;
     color: white;
     border-radius: 20px;
     font-family: Varela Round;
