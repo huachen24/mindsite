@@ -20,6 +20,7 @@ body {
     padding-left: 80px;
     padding-right: 80px;
     font-size: 1em;
+    font-family: Noto Sans SC;
     text-transform: uppercase;
     border-bottom: 1px solid grey;
 }
@@ -122,15 +123,18 @@ body {
     text-transform: lowercase; 
     color: White;
     border-radius:20px;
-    background-color:Teal;
+    border-type:none;
+    background-color:LightSeaGreen;
+    align-items:center;
+    width: 13%;
 }
 
 .active {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid teal;
 }
 
 .active a {
-    color: black !important;
+    color: teal !important;
 }
 
 /***************/
@@ -174,7 +178,8 @@ body {
     text-transform: lowercase; 
     color: White;
     border-radius:20px;
-    background-color:Teal;
+    border-style: None;
+    background-color:LightSeaGreen;
     height:30px;
     cursor: pointer;
     vertical-align: top;
@@ -229,6 +234,7 @@ body {
     background-color: MediumTurquoise;
     color: white;
     border-radius: 20px;
+    font-size: 0.75em;
     font-family: Varela Round;
 }
 
@@ -281,5 +287,9 @@ div[id^='overlay-'] {
 
 .pagebar a {
     font-size: 1.75em;
+    font-family: Varela Round; 
+    border-radius: 20px;
+    border-type:None;
+    colour: MediumTurquoise;
     margin: 20px 10px 0px;
 }
