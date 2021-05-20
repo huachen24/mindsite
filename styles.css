@@ -308,29 +308,41 @@ div[id^='overlay-'] {
     margin: 0px 10px;
 }
 
+/***************/
+/**** Forms ****/
+/***************/
 
-/******************/
-/**** Feedback ****/
-/******************/
-
-.feedback {
+.form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: calc(100vh - 6em);
+}
+
+.form-container p {
+    font-size: 2em;
+}
+
+.form {
+    width: 100%;
     align-items: left;
 }
 
-.feedback-prompt {
+.form-field {
+    display: flex;
+    margin: 3em 0em;
+}
+
+.form-prompt {
     font-size: 1.5rem;
     margin-right: 1em;
     flex-shrink: 0;
+    width: 30%;
 }
 
-.feedback-field {
-    display: flex;
-    flex-shrink: 0;
-}
-
-.feedback-input {
+.form-input {
     width: 100%;
 }
 
@@ -385,7 +397,7 @@ div[id^='overlay-'] {
       background: white;
 }
 
-.feedback-success {
+.form-success {
     width: 100%;
     height: calc(100vh - 6em);
     display: flex;

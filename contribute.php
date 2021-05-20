@@ -1,10 +1,10 @@
 <?php
     include 'header.php';
-    if (isset($_GET['feedback'])) { 
+    if (isset($_GET['contribute'])) { 
 ?>
 
 <div class='form-success'>
-    <div>Thank you for your feedback!</div>
+    <div>Thank you for your contribution!</div>
     <img src='images/form_success.png'>
     <div>Have a nice day!</div>
     <div>-MindSite</div>
@@ -13,51 +13,54 @@
 <?php } else { ?>
 
 <div class='form-container'>
-    <form class='form' action='submit_feedback.php' method='post'>
+    <p>Thank you for helping us make mental resources more accessible!</p>
+    <form class='form' action='submit_contribution.php' method='post'>
         <div class='form-field'>
             <div class='form-prompt'>
-                Feedback Type:
+                Name of organisation: 
             </div>
             <div class='form-input'>
-                <label class='radio-label'>Removal of Resource
-                    <input type='radio' checked='checked' name='type' value='remove'>
+                <input type='text' name='name'>
+                <label class='radio-label'>Private
+                    <input type='radio' checked='checked' name='type' value='private'>
                     <span class='radio'></span>
                 </label>
-                <label class='radio-label'>Suggestion for Improvement
-                    <input type='radio' checked='checked' name='type' value='improve'>
-                    <span class='radio'></span>
-                </label>
-            </div>
-        </div>
-        <div class='form-field'>
-            <div class='form-prompt'>
-                User Type:
-            </div>
-            <div class='form-input'>
-                <label class='radio-label'>Organisation
-                    <input type='radio' checked='checked' name='user' value='organisation'>
-                    <span class='radio'></span>
-                </label>
-                <label class='radio-label'>Individual
-                    <input type='radio' checked='checked' name='user' value='individual'>
+                <label class='radio-label'>Government
+                    <input type='radio' checked='checked' name='type' value='government'>
                     <span class='radio'></span>
                 </label>
             </div>
         </div>
         <div class='form-field'>
             <div class='form-prompt'>
-                Feedback Details:
+                Types of services: 
             </div>
             <div class='form-input'>
-                <textarea id='details' name='details' placeholder=''></textarea>
+                <input type='text' name='service'>
+                <label class='radio-label'>In-person
+                    <input type='radio' checked='checked' name='servicemode' value='inperson'>
+                    <span class='radio'></span>
+                </label>
+                <label class='radio-label'>Online
+                    <input type='radio' checked='checked' name='servicemode' value='online'>
+                    <span class='radio'></span>
+                </label>
             </div>
         </div>
         <div class='form-field'>
             <div class='form-prompt'>
-                Email:
+                Specialisation:
             </div>
             <div class='form-input'>
-                <input type='text' id='email' name='email' placeholder='OPTIONAL'>
+                <input type='text' name='specialisation'>
+            </div>
+        </div>
+        <div class='form-field'>
+            <div class='form-prompt'>
+                Website: 
+            </div>
+            <div class='form-input'>
+                <input type='text' name='website'>
             </div>
         </div>
         <input type='submit' name='submit' value='Submit'>
