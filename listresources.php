@@ -2,16 +2,19 @@
     $current_resources = array_slice($all_resources, $resource_offset, $perpage);
     foreach ($current_resources as $resource) {
         echo "<div class='resource'>";
-        if ($resource['image'] == 1) {
-            echo "<div class='resource-img'><img id='profile' src='profiles/".$resource['rid'].".png'></div>";
+        if ($resource['image'] == 'png' || $resource['image'] == 'jpg' || $resource['image'] == 'svg') {
+            echo "<div class='resource-img'><img id='profile' src='profiles/".$resource['rid'].".".$resource['image']."'></div>";
         } else {
             echo "<div class='resource-img'><img id='profile' src='profiles/default.png'></div>";
         }
         echo "<div class='resource-details'>
-                <h3 onclick='on(".$resource['rid'].")'>".$resource['title']."</h3>
-                <p class='keywords'>".$resource['keywords']."</p>
-                <p>".$resource['shortdesc']."</p>
-                </div>";
+                <h3 onclick='on(".$resource['rid'].")'>".$resource['title']."</h3><div class='keywords'>";
+        $keywords = json_decode($resource['keywords']);
+        for ($i = 0; $i < count($keywords); $i++) {
+            echo "<div class='keyword'>".$keywords[$i]."</div>";
+        }
+        echo "</div><p>".$resource['shortdesc']."</p>";
+        echo "</div>";
         echo "</div>";
         echo "<div id='overlay-".$resource['rid']."' onclick='off(".$resource['rid'].")'>";
         echo "<div id='overlaytext'>";
