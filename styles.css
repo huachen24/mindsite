@@ -110,6 +110,10 @@ body {
     border: 2px solid Grey;
 }
 
+.searchbar input[type=text]:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 .searchbutton {
     font-size: 2em;
     font-family: Varela Round;
@@ -119,10 +123,18 @@ body {
     border-style: none;
     background-color:LightSeaGreen;
     align-items:center;
-    width: 13%;
+    padding-left:5px;
+    padding-right:5px;
     height: 1.3em;
     cursor: pointer;
     vertical-align: top;
+    transition: 0.5s
+}
+
+.searchbutton:hover{
+    background: white;
+    border: 2px solid teal;
+    color:teal;
 }
 
 .active {
@@ -175,8 +187,15 @@ body {
     font-family: Varela Round;
     border-radius:20px;
     border: 2px solid Grey;
+    transition: 0.5s;
     
 }
+
+.resultsearchbar input[type=text]:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
 .resultsearchbutton {
     font-size: 1em;
     font-family: Varela Round;
@@ -188,6 +207,13 @@ body {
     height:30px;
     cursor: pointer;
     vertical-align: top;
+    transition-duration: 0.5s;
+}
+
+.resultsearchbutton:hover{
+    background: white;
+    border: 1px solid teal;
+    color:teal;
 }
 
 .resource-container {
@@ -229,6 +255,12 @@ body {
     text-transform: uppercase;
     font-family: Noto Sans SC;
     color: Teal;
+    transition: 0.5s;
+}
+
+.resource-details h3:hover{
+    text-decoration: underline;
+    color: #005377 ;
 }
 
 .keywords {
@@ -300,13 +332,23 @@ div[id^='overlay-'] {
 }
 
 .pagebar a {
-    font-size: 1.75em;
+    font-size: 1em;
     font-family: Varela Round; 
+    color: lightseagreen;
+    padding: 8px 16px;
     border-radius: 20px;
-    border-style:None;
-    color: MediumTurquoise;
-    margin: 0px 10px;
+    transition: .8s;
 }
+ 
+/*style activelink*/
+.pagebar a.active{
+    border 1px solid lightseagreen;
+    color: white;
+}
+
+/*add a background color on mouse-over*/
+.pagebar a:hover:not(.active) {background-color: lightseagreen; color:white;}
+
 
 /***************/
 /**** Forms ****/
