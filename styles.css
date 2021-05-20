@@ -123,8 +123,8 @@ body {
     border-style: none;
     background-color:LightSeaGreen;
     align-items:center;
-    padding-left:5px;
-    padding-right:5px;
+    padding-left:8px;
+    padding-right:8px;
     height: 1.3em;
     cursor: pointer;
     vertical-align: top;
@@ -133,7 +133,7 @@ body {
 
 .searchbutton:hover{
     background: white;
-    border: 2px solid teal;
+    border: 3px solid teal;
     color:teal;
 }
 
@@ -365,6 +365,8 @@ div[id^='overlay-'] {
 
 .form-container p {
     font-size: 2em;
+    font-family: Noto Sans SC;
+    color: teal;     
 }
 
 .form {
@@ -446,4 +448,6 @@ div[id^='overlay-'] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: Noto Sans SC;
+    color: Teal;
 }
