@@ -13,6 +13,7 @@
 <?php } else { ?>
 
 <div class='form-container'>
+    <p class='form-header'>Please leave your feedback below.</p>
     <form class='form' action='submit_feedback.php' method='post'>
         <div class='form-field'>
             <div class='form-prompt'>
@@ -60,7 +61,9 @@
                 <input type='text' id='email' name='email' placeholder='OPTIONAL'>
             </div>
         </div>
-        <input type='submit' name='submit' value='Submit'>
+        <div class='submit'>
+            <input type='submit' name='submit' value='Submit'>
+        </div>
     </form>
 </div>
 

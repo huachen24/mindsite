@@ -13,7 +13,8 @@
 <?php } else { ?>
 
 <div class='form-container'>
-    <p>Thank you for helping us make mental resources more accessible!</p>
+    <p class='form-header'>Thank you for helping us make mental resources more accessible!</p>
+    <p class='form-subheader'>We will contact you if we require more information.</p>
     <form class='form' action='submit_contribution.php' method='post'>
         <div class='form-field'>
             <div class='form-prompt'>
@@ -63,7 +64,17 @@
                 <input type='text' name='website'>
             </div>
         </div>
-        <input type='submit' name='submit' value='Submit'>
+        <div class='form-field'>
+            <div class='form-prompt'>
+                Contact details: 
+            </div>
+            <div class='form-input'>
+                <input type='text' name='contact'>
+            </div>
+        </div>
+        <div class='submit'>
+            <input type='submit' name='submit' value='Submit'>
+        </div>
     </form>
 </div>
 
