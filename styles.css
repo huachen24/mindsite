@@ -163,11 +163,25 @@ body {
     align-items: center;
 }
 
+.content h2 {
+    font-family: Noto Sans SC;
+    background: SandyBrown; 
+    color: White;
+    border-radius: 1em; 
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    alighn-items: center;
+}
+    
+
 .content p {
-    font-family: Helvetica, sans-serif;
+    font-family: Varela Round;
     font-size: 20px;
     margin: 1em 0em;
     color: DimGray;
+    width:60%;
 }
 
 /*******************/
@@ -396,6 +410,8 @@ div[id^='overlay-'] {
 
 .form-prompt {
     font-size: 1.5rem;
+    font-family: Varela Round;
+    color: DimGrey;
     margin-right: 1em;
     flex-shrink: 0;
     width: 30%;
@@ -408,6 +424,7 @@ div[id^='overlay-'] {
 .form-input input[type='text'] {
     width: 100%;
     margin-bottom: 1em;
+    font-family: Varela Round;
 }
 
 .form-input textarea {
@@ -421,6 +438,8 @@ div[id^='overlay-'] {
     padding-left: 1.25em;
     cursor: pointer;
     margin: 0em 0.5em;
+    font-family: Varela Round;
+    color: DimGray;
 }
   
 .radio-label input {
@@ -444,7 +463,7 @@ div[id^='overlay-'] {
 }
   
 .radio-label input:checked ~ .radio {
-    background-color: #2196F3;
+    background-color: SandyBrown;
 }
   
 .radio:after {
@@ -470,7 +489,7 @@ div[id^='overlay-'] {
     width: 100%;
     text-align: right;
 }
-
+    
 .form-success {
     width: 100%;
     height: calc(100vh - 6em);
