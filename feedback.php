@@ -5,7 +5,7 @@
 
 <div class='form-success'>
     <div>Thank you for your feedback!</div>
-    <img src='images/form_success.png'>
+    <img class='mascot' src='images/form_success.png'>
     <div>Have a nice day!</div>
     <div>-MindSite</div>
 </div>

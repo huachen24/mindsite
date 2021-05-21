@@ -33,7 +33,7 @@
     for ($i=1; $i<=$total_pages; $i++) {
         if ($i == $current_page) {
             if ($total_pages > 1) {
-                echo "<a>".$current_page."</a>";
+                echo "<a class='active_page'>".$current_page."</a>";
             }
         } else {
             echo "<a href='".generate_url($i)."'>".$i."</a>";

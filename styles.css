@@ -151,7 +151,7 @@ body {
 
 .content {
     height: 100%;
-    width: 100%;
+    width: 75vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,11 +161,8 @@ body {
 .content p {
     font-family: Helvetica, sans-serif;
     font-size: 20px;
+    margin: 1em 0em;
     color: DimGray;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 /*******************/
@@ -328,7 +325,7 @@ div[id^='overlay-'] {
 /*****************/
 
 .pagebar {
-    margin-top: 20px;
+    margin: 1em 0em 3em;
 }
 
 .pagebar a {
@@ -341,13 +338,15 @@ div[id^='overlay-'] {
 }
  
 /*style activelink*/
-.pagebar a.active{
-    border 1px solid lightseagreen;
-    color: white;
+.active_page {
+    border: 1px solid lightseagreen;
 }
 
 /*add a background color on mouse-over*/
-.pagebar a:hover:not(.active) {background-color: lightseagreen; color:white;}
+.pagebar a:hover:not(.active_page) {
+    background-color: lightseagreen; 
+    color:white;
+}
 
 
 /***************/
@@ -450,4 +449,8 @@ div[id^='overlay-'] {
     align-items: center;
     font-family: Noto Sans SC;
     color: Teal;
+}
+
+.mascot {
+    width: 300px;
 }

@@ -28,8 +28,8 @@
                     echo "<h1 align-content='left'>Showing results for ".$search.":</h1>";
                     include 'listresources.php';
                 } else {
-                    echo "<h1>No resources found.</h1><h1>Try another query?</h1>";
-                    echo "<img src='images/no_results.png'>";
+                    echo "<h1>No resources found.<br>Try another query?</h1>";
+                    echo "<img class='mascot' src='images/no_results.png'>";
                     echo "<h1>Suggest a new resource</h1>";
                     echo "<a href='contribute.php'>CONTRIBUTE</a>";
                 }
