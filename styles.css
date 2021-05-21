@@ -405,7 +405,7 @@ div[id^='overlay-'] {
 
 .form-subheader {
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5em;
     font-family: Noto Sans SC;
     color: teal;     
     margin: 0;
@@ -522,21 +522,8 @@ div[id^='overlay-'] {
 /**** Contact Us ****/
 /********************/
 
-.collab {
-    font-size: 2em;
-    font-family: Noto Sans SC;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.collab-sub {
-    font-size: 1.25em;
-    font-family: Noto Sans SC;
-    text-align: center;
-}
-
 .mascots {
-    margin: 2em 0em;
+    margin: 3em 0em;
     width: 700px;
 }
 
@@ -546,8 +533,8 @@ div[id^='overlay-'] {
     font-family: Noto Sans SC;
     text-transform: uppercase;
     text-decoration: none;
-    color: black;
-    border: 2px solid black;
+    color: teal;
+    border: 2px solid teal;
     padding: 5px 10px;
     border-radius: 5px;
 }
