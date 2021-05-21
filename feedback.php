@@ -17,7 +17,7 @@
     <form class='form' action='submit_feedback.php' method='post'>
         <div class='form-field'>
             <div class='form-prompt'>
-                Feedback Type:
+                Feedback type:
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Removal of Resource
@@ -32,7 +32,7 @@
         </div>
         <div class='form-field'>
             <div class='form-prompt'>
-                User Type:
+                Organisation:
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Organisation
@@ -47,7 +47,7 @@
         </div>
         <div class='form-field'>
             <div class='form-prompt'>
-                Feedback Details:
+                Feedback details:
             </div>
             <div class='form-input'>
                 <textarea id='details' name='details' placeholder=''></textarea>
