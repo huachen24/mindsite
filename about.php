@@ -9,11 +9,15 @@
 
     <h2> Our Mission </h2>
 
-    <p>MindSite is a platform that eases Youths’ search for Mental Health resources, all while keeping in mind each youth’s particular needs.<br> We aim to empower youths to seek the mental support they need easily.</p>
+    <p>MindSite is a platform that eases Youths’ search for Mental Health resources, all while keeping in mind each youth’s particular needs.<br>We aim to empower youths to seek the mental support they need easily.</p>
     
     <h2>About Mindfullness</h2>
         
-    <p>One of SYNC's five DBT Monsters. They are focused,open-minded and manifest big brain energy. However, they do get a little sleepy sometimes</p>
+    <div class='about-mindfullness'>
+        <img class='mindfullness' src='images/mascot_mindfullness.png'>
+        <p>One of SYNC's five DBT Monsters. They are focused,open-minded and manifest big brain energy.<br>However, they do get a little sleepy sometimes.</p>
+    </div>
+    
 </div>
   
 </div>

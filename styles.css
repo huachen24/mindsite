@@ -156,11 +156,12 @@ body {
 
 .content {
     height: 100%;
-    width: 75vw;
+    width: 55vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: justify;
 }
 
 .content h2 {
@@ -172,16 +173,23 @@ body {
     padding-bottom: 8px;
     padding-left: 16px;
     padding-right: 16px;
-    alighn-items: center;
 }
-    
 
 .content p {
     font-family: Varela Round;
     font-size: 20px;
     margin: 1em 0em;
     color: DimGray;
-    width:60%;
+}
+
+.about-mindfullness {
+    display: flex;
+    column-gap: 1em;
+}
+
+.mindfullness {
+    width: 30%;
+    flex-shrink: 0;
 }
 
 /*******************/
