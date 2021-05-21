@@ -114,6 +114,11 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.searchbar input[type=text]:focus {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
 .searchbutton {
     font-size: 2em;
     font-family: Varela Round;
@@ -185,13 +190,16 @@ body {
     border-radius:20px;
     border: 2px solid Grey;
     transition: 0.5s;
-    
 }
 
 .resultsearchbar input[type=text]:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.resultsearchbar input[type=text]:focus {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    outline: none;
+}
 
 .resultsearchbutton {
     font-size: 1em;
