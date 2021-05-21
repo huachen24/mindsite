@@ -3,6 +3,9 @@
 ?>
 
 <div class="content">
+
+    <img class='about-logo' src='images/MindSite_Logo.png'>
+
     <h2> About MindSite </h2>
 
     <p>Upon seeing Singaporean Youth struggle to sieve through pages of Mental Wellness resources, a group of students sought to create a solution for greater access to Mental Wellness. And thus, MindSite was born! <br></br>In partnership with Strengthening Youths in a Network of Care (SYNC), MindSite seeks to provide a filterable database of verified mental wellness resources tailored to each individual's needs.</p>

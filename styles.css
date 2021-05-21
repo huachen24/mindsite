@@ -164,6 +164,10 @@ body {
     text-align: justify;
 }
 
+.about-logo {
+    width: 100%;
+}
+
 .content h2 {
     font-family: Noto Sans SC;
     background: SandyBrown; 
@@ -173,6 +177,7 @@ body {
     padding-bottom: 8px;
     padding-left: 16px;
     padding-right: 16px;
+    margin: 0.5em 0em 0em;
 }
 
 .content p {
