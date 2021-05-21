@@ -9,7 +9,7 @@
 
     <h2> Our Mission </h2>
 
-    <p>MindSite is a platform that eases Youths’  search for Mental Health resources, all while keeping in mind each youth’s particular needs.<br> We aim to empower youths to seek the mental support they need easily.</p>
+    <p>MindSite is a platform that eases Youths’ search for Mental Health resources, all while keeping in mind each youth’s particular needs.<br> We aim to empower youths to seek the mental support they need easily.</p>
     
     <h2>About Mindfullness</h2>
         
