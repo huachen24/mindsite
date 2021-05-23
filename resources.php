@@ -2,13 +2,13 @@
     include 'header.php';
 ?>
 
-<div class="resultsearchbar">
-    <form method="GET" action="search.php">
-        <input type="text" placeholder="Search database" name="search" size="40">
-        <input class="resultsearchbutton" type="submit" value="Search">
-    </form>
-</div>
-
+<form method='GET' action='search.php'>
+    <div class='resultsearchbar'>
+        <input type='text' placeholder='Search database' name='search' size='40'>
+        <input class='resultsearchbutton' type='submit' value='search'>
+    </div>
+    <?php include 'filters.php';?>
+</form>
 
 <div class='resource-container'>
     <?php
@@ -33,9 +33,9 @@
 </div>
 
 </div>
-</body>
 
 <script>
+
     function on(rid) {
         document.getElementById("overlay-"+rid).style.display = "flex";
     }
@@ -43,6 +43,7 @@
     function off(rid) {
         document.getElementById("overlay-"+rid).style.display = "none";
     }
+    
 </script>
-
+</body>
 </html>

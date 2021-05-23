@@ -2,12 +2,13 @@
     include 'header.php';
 ?>
 
-<div class="resultsearchbar">
-    <form method="GET" action="search.php">
+<form method="GET" action="search.php">
+    <div class="resultsearchbar">
         <input type="text" placeholder="Search database" name="search" size="40">
         <input class="resultsearchbutton" type="submit" value="Search">
-    </form>
-</div>
+    </div>
+        <?php include 'filters.php'?>
+</form>
 
 <div class="resource-container">
     <?php
@@ -35,7 +36,7 @@
                 }
             }
         } else {
-            header("Location: ../SYNC/resources.php");
+            header("Location: ../mindsite/resources.php");
         }
     ?>
 </div>
