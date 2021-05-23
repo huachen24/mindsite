@@ -316,6 +316,7 @@ body {
     font-family: Varela Round; 
     text-align: justify;
 }
+
 #profile {
     border-radius: 8px;
     width: 100px;
@@ -490,10 +491,10 @@ div[id^='overlay-'] {
 }
 
 .radio-label .radio:after {
-       top: 0.3em;
-      left: 0.3em;
-      width: 0.4em;
-      height: 0.4em;
+       top: 0.25em;
+      left: 0.25em;
+      width: 0.5em;
+      height: 0.5em;
       border-radius: 50%;
       background: white;
 }
@@ -537,4 +538,9 @@ div[id^='overlay-'] {
     border: 2px solid teal;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.email-us:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    outline: none;
 }

@@ -23,11 +23,11 @@
             <div class='form-input'>
                 <input type='text' name='name'>
                 <label class='radio-label'>Private
-                    <input type='radio' checked='checked' name='type' value='private'>
+                    <input type='radio' name='type' value='private'>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Government
-                    <input type='radio' checked='checked' name='type' value='government'>
+                    <input type='radio' name='type' value='government'>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -39,11 +39,11 @@
             <div class='form-input'>
                 <input type='text' name='service'>
                 <label class='radio-label'>In-person
-                    <input type='radio' checked='checked' name='servicemode' value='inperson'>
+                    <input type='radio' name='servicemode' value='inperson'>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Online
-                    <input type='radio' checked='checked' name='servicemode' value='online'>
+                    <input type='radio' name='servicemode' value='online'>
                     <span class='radio'></span>
                 </label>
             </div>

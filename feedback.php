@@ -21,11 +21,11 @@
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Removal of Resource
-                    <input type='radio' checked='checked' name='type' value='remove'>
+                    <input type='radio' name='type' value='remove'>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Suggestion for Improvement
-                    <input type='radio' checked='checked' name='type' value='improve'>
+                    <input type='radio' name='type' value='improve'>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -36,11 +36,11 @@
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Organisation
-                    <input type='radio' checked='checked' name='user' value='organisation'>
+                    <input type='radio' name='user' value='organisation'>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Individual
-                    <input type='radio' checked='checked' name='user' value='individual'>
+                    <input type='radio' name='user' value='individual'>
                     <span class='radio'></span>
                 </label>
             </div>
