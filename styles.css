@@ -181,7 +181,7 @@ body {
     justify-content: space-between;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.1s ease-out;
+    transition: max-height 0.3s ease-out;
 }
 
 #filters > div {

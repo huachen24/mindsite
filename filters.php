@@ -56,7 +56,7 @@
         if (filters.style.maxHeight) {
             filters.style.maxHeight = null;
         } else {
-            filters.style.maxHeight = '1000px';
+            filters.style.maxHeight = '200px';
         }
     }
 
