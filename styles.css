@@ -91,7 +91,7 @@ body {
     margin-left: 30px;
 }
 
-.search {
+.main {
     width: 100%;
     height: calc(100vh - 6em);
     display: flex;
@@ -100,23 +100,32 @@ body {
     align-items: center;
 }
 
-.search > img {
+.main > img {
     width: 60%;
     display: block;
     margin: 0px;
 }
 
-.searchbar {
+.search {
     width: 70vw;
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .searchbar input[type=text] {
     font-size: 2em;
-    margin: 0em 0.2em;
+    flex-grow: 1;
+    margin-right: 0.2em;
     text-indent: 0.5em;
     font-family: Varela Round;
     border-radius:20px;
@@ -155,6 +164,7 @@ body {
 /*****************/
 
 #filter-button {
+    width: 100%;
     text-align: center;
     font-size: 1.2em;
     cursor: pointer;
@@ -183,7 +193,7 @@ body {
 #filters {
     display: flex;
     flex-wrap: wrap;
-    width: 70vw;
+    width: 100%;
     justify-content: space-between;
     overflow: hidden;
     max-height: 0;
@@ -215,17 +225,26 @@ body {
 /**** Resources ****/
 /*******************/
 
-.resultsearchbar {
+.resource-search {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resource-searchbar {
     width: 100%;
-    margin: 10px;
+    margin-bottom: 10px;
     padding-top: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.resultsearchbar input[type=text] {
+.resource-searchbar input[type=text] {
     font-size: 1.25em;
+    flex-grow: 1;
     text-indent: 0.25em;
     font-family: Varela Round;
     border-radius:20px;
@@ -234,16 +253,16 @@ body {
     transition: 0.5s;
 }
 
-.resultsearchbar input[type=text]:hover {
+.resource-searchbar input[type=text]:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.resultsearchbar input[type=text]:focus {
+.resource-searchbar input[type=text]:focus {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     outline: none;
 }
 
-.resultsearchbutton {
+.resource-searchbutton {
     font-size: 1em;
     font-family: Varela Round;
     text-transform: lowercase; 
@@ -257,7 +276,7 @@ body {
     transition-duration: 0.5s;
 }
 
-.resultsearchbutton:hover{
+.resource-searchbutton:hover{
     background: white;
     border: 1px solid teal;
     color:teal;
@@ -269,6 +288,11 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    font-family: varela round; 
+    color: gray;
+}
+
+.resource-container a {
     font-family: varela round; 
     color: gray;
 }

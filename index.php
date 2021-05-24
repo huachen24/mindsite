@@ -2,15 +2,17 @@
     include 'header.php';
 ?>
 
-<div class='search'>
+<div class='main'>
     <img src='images/MindSite_Main.png'>
-    <form method='POST' action='search.php'>
-        <div class='searchbar'>
-            <input type='text' placeholder='Search database' name='search' size='40'>
-            <input class='searchbutton' type='submit' value='search'>
-        </div>
-        <?php include 'filters.php';?>
-    </form>
+    <div class='search'>
+        <form method='POST' action='search.php'>
+            <div class='searchbar'>
+                <input type='text' placeholder='Search database' name='search'>
+                <input class='searchbutton' type='submit' value='search'>
+            </div>
+            <?php include 'filters.php';?>
+        </form>
+    </div>
 </div>
 
 </div>

@@ -9,7 +9,7 @@
     </div>
     <div class='age-filter'>
         <label>Your age: <br>
-            <input type='number' id='age' name='age' min='1' max='100'>
+            <input type='number' id='age' name='age' min='0' max='100' value='0'>
         </label>
     </div>
     <div class='category-filter'>
@@ -37,9 +37,27 @@
         </label>
     </div>
     <div class='mode-filter'>
-        <label>Mode of service: <br>
-            <label><input type='radio' name='mode' value='online'>Online</label>
-            <label><input type='radio' name='mode' value='in-person'>In-person</label>
+        <label>Location: <br>
+            <div class='categories'>
+                <label>
+                    <input type='checkbox' name='location' value='north'>North
+                </label>
+                <label>
+                    <input type='checkbox' name='location' value='south'>South
+                </label>
+                <label>
+                    <input type='checkbox' name='location' value='east'>East
+                </label>
+                <label>
+                    <input type='checkbox' name='location' value='west'>West
+                </label>
+                <label>
+                    <input type='checkbox' name='location' value='central'>Central
+                </label>
+                <label>
+                    <input type='checkbox' name='location' value='online'>Online
+                </label>
+            </div>
         </label>
     </div>
 </div>
