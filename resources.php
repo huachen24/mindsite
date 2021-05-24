@@ -2,7 +2,7 @@
     include 'header.php';
 ?>
 
-<form method='GET' action='search.php'>
+<form method='POST' action='search.php'>
     <div class='resultsearchbar'>
         <input type='text' placeholder='Search database' name='search' size='40'>
         <input class='resultsearchbutton' type='submit' value='search'>

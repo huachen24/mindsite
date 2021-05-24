@@ -2,7 +2,7 @@
     include 'header.php';
 ?>
 
-<form method="GET" action="search.php">
+<form method="POST" action="search.php">
     <div class="resultsearchbar">
         <input type="text" placeholder="Search database" name="search" size="40">
         <input class="resultsearchbutton" type="submit" value="Search">
@@ -12,8 +12,8 @@
 
 <div class="resource-container">
     <?php
-        if (isset($_GET['search']) && !empty($_GET['search'])) {
-            $search = mysqli_real_escape_string($conn, $_GET['search']);
+        if (isset($_POST['search']) && !empty($_POST['search'])) {
+            $search = mysqli_real_escape_string($conn, $_POST['search']);
             $sql = "SELECT * FROM resources WHERE keywords LIKE '%$search%' OR title LIKE '%$search%'";
             $result = mysqli_query($conn, $sql);
             if ($result == FALSE) {
@@ -36,7 +36,7 @@
                 }
             }
         } else {
-            header("Location: ../mindsite/resources.php");
+            header("Location: ../sync/resources.php");
         }
     ?>
 </div>
