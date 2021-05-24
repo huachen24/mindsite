@@ -10,6 +10,7 @@
     <title>MindSite</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
 </head>
 <body>
 <div class="container">

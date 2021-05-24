@@ -39,7 +39,9 @@
 <script>
 
     function on(rid) {
-        document.getElementById("overlay-"+rid).style.display = "flex";
+        var resource = document.getElementById("overlay-"+rid);
+        $("#filter-button").load("count_clicks.php", {resource_rid: rid});
+        resource.style.display = "flex";
     }
 
     function off(rid) {
