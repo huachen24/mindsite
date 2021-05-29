@@ -404,6 +404,10 @@ div[id^='overlay-']:after {
     font-size: 1.25em;
 }
 
+#overlaytext a:hover {
+    color: lightseagreen;
+}
+
 /*****************/
 /**** Pagebar ****/
 /*****************/
@@ -468,6 +472,18 @@ div[id^='overlay-']:after {
     margin: 1em 0em;
     color: DimGray;
 }
+
+.content a{ 
+    color: lightseagreen;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.content a:hover{
+    color: SandyBrown;
+    text-decoration: underline;
+}
+
 
 .about-mindfullness {
     display: flex;
