@@ -18,11 +18,24 @@
         echo "</div>";
         echo "<div id='overlay-".$resource['rid']."' onclick='off(".$resource['rid'].")'>";
         echo "<div id='overlaytext'>";
-            echo "<h3><a href='".$resource['weblink']."'>".$resource['title']."</a></h3>
+            echo "<h3><a href='".$resource['weblink']."' id='click-".$resource['rid']."'>".$resource['title']."</a></h3>
             <p>".$resource['price']."</p>
             <p>".$resource['address']."</p>
             <p>".$resource['longdesc']."</p>";
         echo "</div>";
+        echo "<script>$('#click-".$resource['rid']."').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                method: 'get',
+                url: 'count_clicks.php',
+                data: {
+                    'resource_rid': ".$resource['rid'].",
+                },
+                success: function(data) {
+                    window.location = '".$resource['weblink']."';
+                }
+            });
+        });</script>";
         echo "</div>";
     }
     echo "<div class='pagebar'>";

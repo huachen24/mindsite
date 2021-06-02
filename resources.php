@@ -13,8 +13,9 @@
 </div>
 
 <div class='resource-container'>
+    <div id="data"></div>
     <?php
-        $sql = "SELECT * FROM resources";
+        $sql = "SELECT * FROM resources ORDER BY clicks DESC, title ASC";
         $result = mysqli_query($conn, $sql);
         if ($result == FALSE) {
             echo "<h1>There are no resources at the moment!</h1>";
@@ -40,14 +41,13 @@
 
     function on(rid) {
         var resource = document.getElementById("overlay-"+rid);
-        $("#filter-button").load("count_clicks.php", {resource_rid: rid});
         resource.style.display = "flex";
     }
 
     function off(rid) {
         document.getElementById("overlay-"+rid).style.display = "none";
     }
-    
+
 </script>
 </body>
 </html>

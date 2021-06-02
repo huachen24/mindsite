@@ -75,15 +75,16 @@
 </body>
 
 <script>
+
     function on(rid) {
         var resource = document.getElementById("overlay-"+rid);
-        $("#filter-button").load("count_clicks.php", {resource_rid: rid});
         resource.style.display = "flex";
     }
 
     function off(rid) {
         document.getElementById("overlay-"+rid).style.display = "none";
     }
+
 </script>
 
 </html>
