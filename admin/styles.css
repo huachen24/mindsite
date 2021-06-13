@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px;
+}
+
+input {
+    margin: 5px 0px;
+}
+
+button {
+    margin: 10px 0px;
+}
