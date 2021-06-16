@@ -1,5 +1,5 @@
 <?php
-    include '../dbh.php';
+    include '../../dbh.php';
     
     $user = $_POST['user'];
     $pwd = $_POST['pwd'];
@@ -10,12 +10,12 @@
             if (password_verify($pwd, $row['pwd'])) {
                 session_start();
                 $_SESSION["user"] = $user;
-                header("Location: index.php");
+                header("Location: ../index.php");
             } else {
-                header("Location: login.php?error=pwd");
+                header("Location: ../login.php?error=pwd");
             }
         }
     } else {
-        header("Location: login.php?error=user");
+        header("Location: ../login.php?error=user");
     }
 ?>

@@ -1,20 +1,10 @@
 <?php
-session_start();
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>MindSite Admin</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
+include 'header.php';
 
-<?php
 if (isset($_SESSION["user"])) {
     echo "<h2>Welcome, ".$_SESSION["user"]."!</h2>";?>
     
-    <h3>Add a resource below</h3>
+    <h3>Select an action</h3>
 
 <?php
     if (isset($_GET['add'])) {
@@ -26,18 +16,14 @@ if (isset($_SESSION["user"])) {
     }
 ?>
 
-    <form action='add_resource.php' method='POST'>
-        <input type='text' name='name' placeholder='Name of resource'><br>
-        <input type='text' name='weblink' placeholder='URL'><br>
-        <input type='text' name='age' placeholder='Age'><br>
-        <input type='text' name='language' placeholder='Language'><br>
-        <input type='text' name='organisation' placeholder='Organisation'><br>
-        <input type='text' name='specialties' placeholder='Specialties'><br>
-        <input type='text' name='modalities' placeholder='Modalities'><br>
-        <button type='submit' name='submit'>Add</button>
-    </form>
+<button><a href='add_resource.php'>Add a resource</a></button>
+<button><a>Edit/Delete resources</a></button>
+<button><a>placeholder</a></button>
+<button><a>placeholder</a></button>
 
-    <form action='logout.inc.php' method='POST'>
+<br><button><a href='chg_pwd.php'>Change password</a></button>
+
+    <form action='includes/logout.inc.php' method='POST'>
         <button type='submit' name='submit'>Logout</button>
     </form>
 <?php
