@@ -168,10 +168,19 @@ body {
     transition: 0.5s
 }
 
-.searchbutton:hover{
+.searchbutton:hover {
     background: white;
     border: 3px solid teal;
     color:teal;
+}
+
+.quote {
+    color: gray;
+    font-size: 4em;
+    font-family: Cookie;
+    font-style: italic;
+    margin: 0.5em;
+    padding: 0;
 }
 
 /*****************/

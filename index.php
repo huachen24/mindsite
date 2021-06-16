@@ -12,6 +12,14 @@
         <?php include 'filters.php';?>
     </form>
 </div>
+<div>
+    <?php
+        $rand = rand(1,8);
+        $result = mysqli_query($conn, "SELECT * FROM quotes WHERE id='{$rand}'");
+        $row = mysqli_fetch_assoc($result);
+        echo "<p class='quote'>".$row['quote']."</p>";
+    ?>
+</div>
 
 </div>
 </div>
