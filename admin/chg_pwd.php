@@ -1,12 +1,28 @@
 <?php
     include 'header.php';
+    include 'navbar.php'
 ?>
 
+<div class='main'>
+<div class='sidebar'>
+<h3>Change Password</h3>
 <form action='includes/chg_pwd.inc.php' method='POST'>
-    <input type='password' name='old_pwd' placeholder='Enter current password'><br>
-    <input type='password' name='pwd' placeholder='Enter new password'><br>
-    <input type='password' name='pwd2' placeholder='Confirm new password'><br>
+    <div class='field'>
+        <label for='old_pwd'>Current Password: </label>
+        <input type='password' id='old_pwd' name='old_pwd' placeholder='Enter current password'>
+    </div>
+    <div class='field'>
+        <label for='pwd'>New Password: </label>
+        <input type='password' id='pwd' name='pwd' placeholder='Enter new password'>
+    </div>
+    <div class='field'>
+        <label for='pwd2'>Confirm Password: </label>
+        <input type='password' id='pwd2' name='pwd2' placeholder='Confirm new password'>
+    </div>
+    <div class='buttons'>
+    <button><a href='index.php'>Back</a></button>
     <button type='submit' name='submit'>Change Password</button>
+    </div>
 </form>
 
 <?php
@@ -31,7 +47,8 @@
         }
     }
 ?>
-<button><a href='index.php'>Back</a></button>
 
+</div>
+</div>
 </body>
 </html>

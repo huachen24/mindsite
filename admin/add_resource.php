@@ -1,7 +1,9 @@
 <?php
     include 'header.php';
+    include 'navbar.php';
 ?>
-
+<div class='main'>
+<div class='sidebar'>
 <h3>Add a resource below</h3>
 
 <?php
@@ -15,21 +17,41 @@
 ?>
 
     <form action='includes/add_resource.inc.php' method='POST'>
-        <input type='text' name='name' placeholder='Name of resource'><br>
-        <input type='text' name='weblink' placeholder='URL'><br>
-        <input type='text' name='age' placeholder='Age'><br>
-        <input type='text' name='language' placeholder='Language'><br>
-        <input type='text' name='organisation' placeholder='Organisation'><br>
-        <input type='text' name='specialties' placeholder='Specialties'><br>
-        <input type='text' name='modalities' placeholder='Modalities'><br>
-        <button type='submit' name='submit'>Add</button>
+        <div class='field'>
+            <label for='name'>Name: </label>
+            <input type='text' id='name' name='name' placeholder='Name of resource'>
+        </div>
+        <div class='field'>
+            <label for='weblink'>URL: </label>
+            <input type='text' id='weblink' name='weblink' placeholder='URL'>
+        </div>
+        <div class='field'>
+            <label for='age'>Age: </label>
+            <input type='text' id='age' name='age' placeholder='Age'>
+        </div>
+        <div class='field'>
+            <label for='language'>Language: </label>
+            <input type='text' id='language' name='language' placeholder='Language'>
+        </div>
+        <div class='field'>
+            <label for='organisation'>Org: </label>
+            <input type='text' id='organisation' name='organisation' placeholder='Organisation'>
+        </div>
+        <div class='field'>
+            <label for='specialties'>Spec: </label>
+            <input type='text' id='specialties' name='specialties' placeholder='Specialties'>
+        </div>
+        <div class='field'>
+            <label for='modalities'>Mod: </label>
+            <input type='text' id='modalities' name='modalities' placeholder='Modalities'>
+        </div>
+        <div class='buttons'>
+            <button><a href='index.php'>Back</a></button>
+            <button type='submit' name='submit'>Add</button>
+        </div>
     </form>
 
-<button><a href='index.php'>Back</a></button>
-
-    <form action='includes/logout.inc.php' method='POST'>
-        <button type='submit' name='submit'>Logout</button>
-    </form>
-
-    </body>
+</div>
+</div>
+</body>
 </html>

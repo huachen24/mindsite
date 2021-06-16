@@ -1,21 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC);
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    margin: 10px;
+    margin: 0px;
 }
 
-input {
-    margin: 5px 0px;
+.main {
+    margin: 0;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgoldenrodyellow;
+}
+
+.center {
+    width: 60vw;
+    height: 70vh;
+    max-width: 700px;
+    max-height: 500px;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sidebar {
+    width: 70vw;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+form {
+    width: 50%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
     margin: 10px 0px;
 }
 
-a {
+button a {
     color: black;
     text-decoration: none;
     cursor: default;
+}
+
+/**********/
+/* NavBar */
+/**********/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: 6em;
+    top: 0;
+    width: 100%;
+    padding: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 1em;
+    font-family: Noto Sans SC;
+    text-transform: uppercase;
+    border-bottom: 1px solid grey;
+    background-color: white;
+}
+
+.nav_main {
+    display: flex;
+    justify-content: left;
+}
+
+.link {
+    height: 22px;
+    margin: 0px 2em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.link a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.link:hover {
+    border-bottom: 1px solid black;
+}
+
+.link a:hover {
+    color: black;
+}
+
+.active {
+    border-bottom: 1px solid teal;
+}
+
+.active a {
+    color: teal !important;
+}
+
+.logout_btn {
+    justify-self: right;
+    height: 22px;
+    margin: 0px 2em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.logout_btn a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.logout_btn:hover {
+    border-bottom: 1px solid black;
+}
+
+.logout_btn a:hover {
+    color: black;
+}
+
+.action_list button {
+    margin: 20px;
 }
