@@ -175,10 +175,12 @@ body {
 
 .quote {
     color: gray;
-    font-size: 4em;
+    max-width: 65vw;
+    font-size: 3em;
     font-family: Cookie;
     font-style: italic;
-    margin: 0.5em;
+    text-align: center;
+    margin: 0em 0.5em;
     padding: 0;
 }
 
