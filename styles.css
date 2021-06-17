@@ -11,8 +11,8 @@
 
 body {
     margin: 0px;
-  background-image: url("images/emojibg2.png");
-  background-repeat: repeat;
+    background-image: url("images/emojibg2.png");
+    background-repeat: repeat;
 }
 
 .container {
@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: space-between;
     position: fixed;
+    height: 6em;
     top: 0;
     width: 100%;
     padding: 2em;
@@ -96,15 +97,24 @@ body {
 
 .main {
     width: 100%;
+    min-height: calc(100vh - 6em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, transparent 12%, white 12%, white 88%, transparent 88%);
+}
+
+.main-home {
+    width: 100%;
     height: calc(100vh - 6em);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:white;
+    background: linear-gradient(to right, transparent 12%, white 12%, white 88%, transparent 88%);
 }
 
-.main > img {
+.main-home > img {
     width: 60%;
     display: block;
     margin: 0px;
@@ -157,10 +167,21 @@ body {
     transition: 0.5s
 }
 
-.searchbutton:hover{
+.searchbutton:hover {
     background: white;
     border: 3px solid teal;
     color:teal;
+}
+
+.quote {
+    color: gray;
+    max-width: 65vw;
+    font-size: 3em;
+    font-family: Cookie;
+    font-style: italic;
+    text-align: center;
+    margin: 0em 0.5em;
+    padding: 0;
 }
 
 /*****************/

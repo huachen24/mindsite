@@ -8,5 +8,6 @@
 <a class='email-us' href='mailto: collab@mindsitesg.org'>Email Us</a>
 
 </div>
+</div>
 </body>
 </html>
