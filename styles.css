@@ -3,16 +3,21 @@
 /*************/
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC);
-@import url(https://fonts.googleapis.com/css?family=Cookie); /* for quotes*/
+@import url(https://fonts.googleapis.com/css?family=Cookie);
 
 * {
     box-sizing: border-box;
+    --yellow: rgb(249, 178, 84);
+    --blue: rgb(26, 65, 91);
+    --buttons: rgb(174,74,58);
+    --titles: rgb(62,133,171);
 }
 
 body {
     margin: 0px;
-    background-image: url("images/emojibg2.png");
-    background-repeat: repeat;
+    /* background-image: url("images/emojibg2.png");
+    background-repeat: repeat; */
+    background-color: var(--yellow);
 }
 
 .container {
@@ -42,6 +47,7 @@ body {
     text-transform: uppercase;
     border-bottom: 1px solid grey;
     background-color: white;
+    z-index: 3;
 }
 
 .link {
@@ -161,7 +167,7 @@ body {
     color: White;
     border-radius: 1em;
     border: 3px solid transparent;
-    background-color:LightSeaGreen;
+    background-color:var(--buttons);
     padding: 0em 0.3em;
     cursor: pointer;
     transition: 0.5s
@@ -169,7 +175,7 @@ body {
 
 .searchbutton:hover {
     background: white;
-    border: 3px solid teal;
+    border: 3px solid var(--buttons);
     color:teal;
 }
 
@@ -193,10 +199,10 @@ body {
     text-align: center;
     font-size: 1.2em;
     cursor: pointer;
-    background-color: SandyBrown;
+    background-color: var(--blue);
     font-family: Varela Round;
     color: white;
-    border: 2px solid SandyBrown;
+    border: 2px solid var(--blue);
     border-bottom-left-radius:25px;
     border-bottom-right-radius: 25px;
 }
@@ -294,7 +300,7 @@ body {
     color: White;
     border-radius: 1em;
     border: 1px solid transparent;
-    background-color: lightseagreen;
+    background-color: var(--buttons);
     height:30px;
     cursor: pointer;
     vertical-align: top;
@@ -303,7 +309,7 @@ body {
 
 .resource-searchbutton:hover{
     background: white;
-    border: 1px solid teal;
+    border: 1px solid var(--buttons);
     color:teal;
 }
 
@@ -481,7 +487,7 @@ div[id^='overlay-']:after {
 
 .content h2 {
     font-family: Noto Sans SC;
-    background: SandyBrown; 
+    background: var(--titles); 
     color: White;
     border-radius: 1em; 
     padding-top: 8px;
@@ -536,14 +542,14 @@ div[id^='overlay-']:after {
     text-align: center;
     font-size: 2em;
     font-family: Noto Sans SC;
-    color: teal;     
+    color: var(--titles);
 }
 
 .form-subheader {
     text-align: center;
     font-size: 1.5em;
     font-family: Noto Sans SC;
-    color: teal;     
+    color: var(--titles);
     margin: 0;
 }
 
@@ -638,6 +644,24 @@ div[id^='overlay-']:after {
     width: 100%;
     text-align: right;
 }
+
+.submit input {
+    font-size: 1em;
+    font-family: Varela Round;
+    color: White;
+    border-radius: 1em;
+    border: 3px solid transparent;
+    background-color:var(--buttons);
+    padding: 0em 0.3em;
+    cursor: pointer;
+    transition: 0.5s
+}
+    
+.submit input:hover {
+        background: white;
+        border: 3px solid var(--buttons);
+        color:teal;
+}
     
 .form-success {
     width: 100%;
@@ -672,9 +696,9 @@ div[id^='overlay-']:after {
     text-decoration: none;
     color: white;
     border: 2px solid white;
-    background-color: lightseagreen;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: rgb(174,74,58);
+    padding: 5px 30px;
+    border-radius: 1.5em;
     transition: 0.5s;
 }
 
