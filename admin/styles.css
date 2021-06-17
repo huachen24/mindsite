@@ -1,7 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC);
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
 * {
     box-sizing: border-box;
+    --yellow: rgb(249, 178, 84);
+    --blue: rgb(26, 65, 91);
+    --buttons: rgb(174,74,58);
+    --titles: rgb(62,133,171);
 }
 
 body {
@@ -73,13 +78,34 @@ form {
 
 button {
     margin: 10px 0px;
+    border-radius: 20px;
+    font-family: Varela Round;
+    background: var(--buttons);
+    padding: 10px;
+    color: white;
+    transition: 0.5s;
+    border: none;
+
 }
 
 button a {
-    color: black;
+    color: white;
     text-decoration: none;
     cursor: default;
+    transition: 0.5s;
 }
+
+button:hover{
+    background: white;
+    color: var(--buttons);
+    border: 1px solid var(--buttons);
+    padding: 10px;
+}
+
+button a:hover{
+    color: var(--buttons);
+}
+
 
 /**********/
 /* NavBar */
