@@ -3,16 +3,22 @@
 /*************/
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC);
-@import url(https://fonts.googleapis.com/css?family=Cookie); /* for quotes*/
+@import url(https://fonts.googleapis.com/css?family=Cookie);
 
 * {
     box-sizing: border-box;
+    --yellow: rgb(249, 178, 84);
+    --blue: rgb(26, 65, 91);
+    --buttons: rgb(174,74,58);
+    --titles: rgb(62,133,171);
 }
 
 body {
     margin: 0px;
-    background-image: url("images/emojibg2.png");
+    min-width: 800px;
+    background-image: url("images/emojibg_admin.png");
     background-repeat: repeat;
+    /*background-color: var(--yellow);*/
 }
 
 .container {
@@ -33,7 +39,9 @@ body {
     position: fixed;
     height: 6em;
     top: 0;
+    left: 0;
     width: 100%;
+    min-width: 800px;
     padding: 2em;
     padding-left: 5em;
     padding-right: 5em;
@@ -42,6 +50,7 @@ body {
     text-transform: uppercase;
     border-bottom: 1px solid grey;
     background-color: white;
+    z-index: 3;
 }
 
 .link {
@@ -65,11 +74,11 @@ body {
 }
 
 .active {
-    border-bottom: 1px solid teal;
+    border-bottom: 1px rgb(62,133,171);
 }
 
 .active a {
-    color: teal !important;
+    color: rgb(62,133,171) !important;
 }
 
 /****************/
@@ -106,7 +115,7 @@ body {
 
 .main-home {
     width: 100%;
-    height: calc(100vh - 6em);
+    min-height: calc(100vh - 6em);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +170,7 @@ body {
     color: White;
     border-radius: 1em;
     border: 3px solid transparent;
-    background-color:LightSeaGreen;
+    background-color:var(--buttons);
     padding: 0em 0.3em;
     cursor: pointer;
     transition: 0.5s
@@ -169,8 +178,8 @@ body {
 
 .searchbutton:hover {
     background: white;
-    border: 3px solid teal;
-    color:teal;
+    border: 3px solid var(--buttons);
+    color: var(--buttons);
 }
 
 .quote {
@@ -193,10 +202,10 @@ body {
     text-align: center;
     font-size: 1.2em;
     cursor: pointer;
-    background-color: SandyBrown;
+    background-color: var(--blue);
     font-family: Varela Round;
     color: white;
-    border: 2px solid SandyBrown;
+    border: 2px solid var(--blue);
     border-bottom-left-radius:25px;
     border-bottom-right-radius: 25px;
 }
@@ -294,7 +303,7 @@ body {
     color: White;
     border-radius: 1em;
     border: 1px solid transparent;
-    background-color: lightseagreen;
+    background-color: var(--buttons);
     height:30px;
     cursor: pointer;
     vertical-align: top;
@@ -303,7 +312,7 @@ body {
 
 .resource-searchbutton:hover{
     background: white;
-    border: 1px solid teal;
+    border: 1px solid var(--buttons);
     color:teal;
 }
 
@@ -430,7 +439,7 @@ div[id^='overlay-']:after {
 }
 
 #overlaytext a:hover {
-    color: lightseagreen;
+    color: var(--yellow);
 }
 
 /*****************/
@@ -444,7 +453,7 @@ div[id^='overlay-']:after {
 .pagebar a {
     font-size: 1em;
     font-family: Varela Round; 
-    color: lightseagreen;
+    color: var(--buttons);
     padding: 8px 16px;
     border-radius: 20px;
     transition: .8s;
@@ -452,12 +461,12 @@ div[id^='overlay-']:after {
  
 /*style activelink*/
 .active_page {
-    border: 1px solid lightseagreen;
+    border: 1px solid rgb(62,133,171);
 }
 
 /*add a background color on mouse-over*/
 .pagebar a:hover:not(.active_page) {
-    background-color: lightseagreen; 
+    background-color: var(--buttons); 
     color:white;
 }
 
@@ -481,7 +490,7 @@ div[id^='overlay-']:after {
 
 .content h2 {
     font-family: Noto Sans SC;
-    background: SandyBrown; 
+    background: var(--titles); 
     color: White;
     border-radius: 1em; 
     padding-top: 8px;
@@ -499,13 +508,13 @@ div[id^='overlay-']:after {
 }
 
 .content a{ 
-    color: lightseagreen;
+    color: var(--buttons);
     text-decoration: none;
     transition: 0.3s;
 }
 
 .content a:hover{
-    color: SandyBrown;
+    color: rgb(62,133,171);
     text-decoration: underline;
 }
 
@@ -536,14 +545,14 @@ div[id^='overlay-']:after {
     text-align: center;
     font-size: 2em;
     font-family: Noto Sans SC;
-    color: teal;     
+    color: var(--titles);
 }
 
 .form-subheader {
     text-align: center;
     font-size: 1.5em;
     font-family: Noto Sans SC;
-    color: teal;     
+    color: var(--titles);
     margin: 0;
 }
 
@@ -638,6 +647,24 @@ div[id^='overlay-']:after {
     width: 100%;
     text-align: right;
 }
+
+.submit input {
+    font-size: 1em;
+    font-family: Varela Round;
+    color: White;
+    border-radius: 1em;
+    border: 3px solid transparent;
+    background-color:var(--buttons);
+    padding: 0em 0.3em;
+    cursor: pointer;
+    transition: 0.5s
+}
+    
+.submit input:hover {
+        background: white;
+        border: 3px solid var(--buttons);
+        color: var(--buttons);
+}
     
 .form-success {
     width: 100%;
@@ -648,7 +675,7 @@ div[id^='overlay-']:after {
     justify-content: center;
     align-items: center;
     font-family: Noto Sans SC;
-    color: Teal;
+    color: var(--titles);
 }
 
 .mascot {
@@ -661,7 +688,8 @@ div[id^='overlay-']:after {
 
 .mascots {
     margin: 3em 0em;
-    width: 700px;
+    width: 70%;
+    max-width: 700px;
 }
 
 .email-us {
@@ -672,15 +700,15 @@ div[id^='overlay-']:after {
     text-decoration: none;
     color: white;
     border: 2px solid white;
-    background-color: lightseagreen;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: var(--buttons);
+    padding: 5px 30px;
+    border-radius: 1.5em;
     transition: 0.5s;
 }
 
 .email-us:hover {
-    color:teal;
-    border: 2px solid teal;
+    color:var(--buttons);
+    border: 2px solid var(--buttons);
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     outline: none;
