@@ -16,9 +16,9 @@
 body {
     margin: 0px;
     min-width: 800px;
-    /* background-image: url("images/emojibg2.png");
-    background-repeat: repeat; */
-    background-color: var(--yellow);
+    background-image: url("images/emojibg_admin.png");
+    background-repeat: repeat;
+    /*background-color: var(--yellow);*/
 }
 
 .container {
