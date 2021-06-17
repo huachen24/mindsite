@@ -74,11 +74,11 @@ body {
 }
 
 .active {
-    border-bottom: 1px solid teal;
+    border-bottom: 1px rgb(62,133,171);
 }
 
 .active a {
-    color: teal !important;
+    color: rgb(62,133,171) !important;
 }
 
 /****************/
@@ -439,7 +439,7 @@ div[id^='overlay-']:after {
 }
 
 #overlaytext a:hover {
-    color: lightseagreen;
+    color: var(--yellow);
 }
 
 /*****************/
@@ -453,7 +453,7 @@ div[id^='overlay-']:after {
 .pagebar a {
     font-size: 1em;
     font-family: Varela Round; 
-    color: lightseagreen;
+    color: var(--buttons);
     padding: 8px 16px;
     border-radius: 20px;
     transition: .8s;
@@ -461,12 +461,12 @@ div[id^='overlay-']:after {
  
 /*style activelink*/
 .active_page {
-    border: 1px solid lightseagreen;
+    border: 1px solid rgb(62,133,171);
 }
 
 /*add a background color on mouse-over*/
 .pagebar a:hover:not(.active_page) {
-    background-color: lightseagreen; 
+    background-color: var(--buttons); 
     color:white;
 }
 
@@ -508,13 +508,13 @@ div[id^='overlay-']:after {
 }
 
 .content a{ 
-    color: lightseagreen;
+    color: var(--buttons);
     text-decoration: none;
     transition: 0.3s;
 }
 
 .content a:hover{
-    color: SandyBrown;
+    color: rgb(62,133,171);
     text-decoration: underline;
 }
 
@@ -663,7 +663,7 @@ div[id^='overlay-']:after {
 .submit input:hover {
         background: white;
         border: 3px solid var(--buttons);
-        color:teal;
+        color: var(--buttons);
 }
     
 .form-success {
@@ -675,7 +675,7 @@ div[id^='overlay-']:after {
     justify-content: center;
     align-items: center;
     font-family: Noto Sans SC;
-    color: Teal;
+    color: var(--titles);
 }
 
 .mascot {
