@@ -21,8 +21,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/emojibg_admin.png");
-    background-repeat: repeat;
+    /*background-image: url("../images/emojibg_admin.png");
+    background-repeat: repeat;*/
+    background: var(--blue);
 }
 
 .center {
@@ -37,6 +38,18 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-family: Noto Sans SC;
+    color: var(--buttons);
+}
+.center h1{
+    font-family: Varela Round;
+    color: var(--titles);
+}
+
+.center h2{ 
+   font-family: Noto Sans SC;
+   color: Gray;
+   font-size: 1em;
 }
 
 .sidebar {
@@ -48,7 +61,15 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-family: Varela Round;
+    color: var(--titles);
 }
+
+.sidebar h3 {
+    font-family: Noto Sans SC;
+    color: gray;
+}
+
 
 .title {
     font-size: 3em;
@@ -63,24 +84,28 @@ form {
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
+    font-family: Noto Sans SC;
 }
 
 .field {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-family: Noto Sans SC;
+    color: var(--titles);
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
+    font-family: Varela Round;
 }
 
 button {
     margin: 10px 0px;
     border-radius: 20px;
     font-family: Varela Round;
-    background: var(--buttons);
+    background: var(--yellow);
     padding: 10px;
     color: white;
     transition: 0.5s;
@@ -93,17 +118,18 @@ button a {
     text-decoration: none;
     cursor: default;
     transition: 0.5s;
+    font-family: varela round;
 }
 
 button:hover{
-    background: white;
-    color: var(--buttons);
-    border: 1px solid var(--buttons);
+    background: var(--buttons);
+    color: white;
     padding: 10px;
 }
 
 button a:hover{
-    color: var(--buttons);
+    background: var(--buttons);
+    color: white
 }
 
 
@@ -155,11 +181,11 @@ button a:hover{
 }
 
 .active {
-    border-bottom: 1px solid teal;
+    border-bottom: 1px var(--buttons);
 }
 
 .active a {
-    color: teal !important;
+    color: var(--buttons) !important;
 }
 
 .logout_btn {
@@ -167,21 +193,26 @@ button a:hover{
     height: 22px;
     margin: 0px 2em;
     border-bottom: 1px solid transparent;
-    transition: border-bottom 0.5s;
+    transition: 0.5s;
 }
 
 .logout_btn a {
-    color: #8a8a8a;
+    /*color: #8a8a8a;*/
     text-decoration: none;
     transition: color 0.5s;
+    background: var(--yellow);
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    border: none; 
 }
 
 .logout_btn:hover {
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid black;*/
 }
 
 .logout_btn a:hover {
-    color: black;
+    color: var(--buttons);
 }
 
 .action_list button {
