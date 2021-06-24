@@ -8,7 +8,7 @@
 
     <h2> About MindSite </h2>
 
-    <p>Upon seeing Singaporean Youth struggle to sieve through pages of Mental Wellness resources, a group of students sought to create a solution for greater access to Mental Wellness. And thus, MindSite was born! <br></br>In partnership with <a href="http://www.syncsg.org">Strengthening Youths in a Network of Care (SYNC)</a>, MindSite seeks to provide a filterable database of verified mental wellness resources tailored to each individual's needs.</p>
+    <p>Upon seeing Singaporean Youth struggle to sieve through pages of Mental Wellness resources, a group of students sought to create a solution for greater access to Mental Wellness. And thus, MindSite was born! <br></br>In partnership with <a href="https://www.impart.sg/"> Impart SG</a>, MindSite seeks to provide a filterable database of verified mental wellness resources tailored to each individual's needs.</p>
 
     <h2> Our Mission </h2>
 
@@ -18,7 +18,7 @@
         
     <div class='about-mindfullness'>
         <img class='mindfullness' src='images/mascot_mindfullness.png'>
-        <p>One of SYNC's five DBT Monsters.They are focused, open-minded and manifest big brain energy.</br> </br> However, they do get a little sleepy sometimes.</p>
+        <p>One of five DBT Monsters.They are focused, open-minded and manifest big brain energy.</br> </br> However, they do get a little sleepy sometimes.</p>
     </div>
     
 </div>
