@@ -451,7 +451,7 @@ div[id^='x-'] {
 .review input {
     all: unset;
     border-radius: 1em;
-    background-color: black;
+    background-color: var(--buttons);
     padding: 3px 10px;
     text-align: right;
     cursor: pointer;
