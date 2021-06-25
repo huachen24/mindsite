@@ -21,11 +21,11 @@
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Removal of Resource
-                    <input type='radio' name='type' value='remove'>
+                    <input type='radio' name='type' value='remove' required>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Suggestion for Improvement
-                    <input type='radio' name='type' value='improve'>
+                    <input type='radio' name='type' value='improve' required>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -36,11 +36,11 @@
             </div>
             <div class='form-input'>
                 <label class='radio-label'>Organisation
-                    <input type='radio' name='user' value='organisation'>
+                    <input type='radio' name='user' value='organisation' required>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Individual
-                    <input type='radio' name='user' value='individual'>
+                    <input type='radio' name='user' value='individual' required>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -50,7 +50,7 @@
                 Feedback details:
             </div>
             <div class='form-input'>
-                <textarea id='details' name='details' placeholder=''></textarea>
+                <textarea id='details' name='details' placeholder='' required></textarea>
             </div>
         </div>
         <div class='form-field'>

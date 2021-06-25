@@ -6,7 +6,7 @@
         $details = $_POST['details'];
         $email = $_POST['email'];
 
-        $mailTo = 'ENTER EMAIL HERE';
+        $mailTo = 'info@hellosync.org';
         $subject = '[MindSite] New Feedback';
         $headers = 'From: MindSite';
         $msg = "New feedback from MindSite:\n\n
@@ -15,7 +15,7 @@
                 User email: ".$email."\n
                 Details: ".$details;
 
-        // mail ($mailTo, $subject, $msg, $headers);
+        mail($mailTo, $subject, $msg, $headers);
         header("Location: feedback.php?feedback=success");
     }
 ?>

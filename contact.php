@@ -3,9 +3,9 @@
 ?>
 
 <p class='form-header'>Wish to collaborate with us?</p>
-<p class='form-subheader'>Drop us an email at<br>collab@mindsitesg.org</p>
+<p class='form-subheader'>Drop us an email at<br>info@hellosync.org</p>
 <img class='mascots' src='images/mascots_all.png'>
-<a class='email-us' href='mailto: collab@mindsitesg.org'>Email Us</a>
+<a class='email-us' href='mailto: info@hellosync.org'>Email Us</a>
 
 </div>
 </div>

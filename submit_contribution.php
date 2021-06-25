@@ -8,7 +8,7 @@
         $specialisation = $_POST['specialisation'];
         $website = $_POST['website'];
 
-        $mailTo = 'ENTER EMAIL HERE';
+        $mailTo = 'info@hellosync.org';
         $subject = '[MindSite] New Contribution';
         $headers = 'From: MindSite';
         $msg = "New organisation for MindSite:\n\n
@@ -18,7 +18,7 @@
                 Specialisation: ".$specialisation."\n
                 Website: ".$website;
 
-        // mail ($mailTo, $subject, $msg, $headers);
+        mail($mailTo, $subject, $msg, $headers);
         header("Location: contribute.php?contribute=success");
     }
 ?>

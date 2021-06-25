@@ -21,13 +21,13 @@
                 Name of organisation: 
             </div>
             <div class='form-input'>
-                <input type='text' name='name'>
+                <input type='text' name='name' required>
                 <label class='radio-label'>Private
-                    <input type='radio' name='type' value='private'>
+                    <input type='radio' name='type' value='private' required>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Government
-                    <input type='radio' name='type' value='government'>
+                    <input type='radio' name='type' value='government' required>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -37,13 +37,13 @@
                 Types of services: 
             </div>
             <div class='form-input'>
-                <input type='text' name='service'>
+                <input type='text' name='service' required>
                 <label class='radio-label'>In-person
-                    <input type='radio' name='servicemode' value='inperson'>
+                    <input type='radio' name='servicemode' value='inperson' required>
                     <span class='radio'></span>
                 </label>
                 <label class='radio-label'>Online
-                    <input type='radio' name='servicemode' value='online'>
+                    <input type='radio' name='servicemode' value='online' required>
                     <span class='radio'></span>
                 </label>
             </div>
@@ -69,7 +69,7 @@
                 Contact details: 
             </div>
             <div class='form-input'>
-                <input type='text' name='contact'>
+                <input type='text' name='contact' required>
             </div>
         </div>
         <div class='submit'>
