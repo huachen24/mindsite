@@ -13,7 +13,7 @@ if (isset($_SESSION["user"])) {
 
     <div class='action_list'>
     <button><a href='add_resource.php'>Add a resource</a></button>
-    <button><a>Edit/Delete resources</a></button>
+    <button><a href='edit_resource.php'>Edit/Delete resources</a></button>
     <button><a>placeholder</a></button>
     <button><a>placeholder</a></button>
     </div>

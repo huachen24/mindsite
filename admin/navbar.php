@@ -1,13 +1,18 @@
 <div class="navbar">
     <div class='nav_main'>
     <?php 
+        echo "<div class='link'>";
+    ?>
+        <a href="../index.php">MindSite</a>
+    </div>
+    <?php 
         if (str_contains($_SERVER['REQUEST_URI'], 'index.php')) {
             echo "<div class='link active'>";
         } else {
             echo "<div class='link'>";
         }
     ?>
-        <a href="../index.php">MindSite</a>
+        <a href="index.php">Admin</a>
     </div>
     <?php 
         if (str_contains($_SERVER['REQUEST_URI'], 'add_resource.php')) {
