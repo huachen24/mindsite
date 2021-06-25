@@ -16,12 +16,19 @@
         echo "</div><p>".$resource['shortdesc']."</p>";
         echo "</div>";
         echo "</div>";
-        echo "<div id='overlay-".$resource['rid']."' onclick='off(".$resource['rid'].")'>";
+        echo "<div id='overlay-".$resource['rid']."'>";
+        echo "<div id='x-".$resource['rid']."' onclick='off(".$resource['rid'].")'>X</div>";
         echo "<div id='overlaytext'>";
             echo "<h3><a href='".$resource['weblink']."' id='click-".$resource['rid']."'>".$resource['title']."</a></h3>
             <p>".$resource['price']."</p>
             <p>".$resource['address']."</p>
             <p>".$resource['longdesc']."</p>";
+        echo "<div class='review'>
+            <form action='add_review.php' method='post'>
+            <input type='hidden' name='rid' value='".$resource['rid']."'>
+            <input type='submit' name='submit' value='Add a review'/>
+            </form>
+            </div>";
         echo "</div>";
         echo "<script>$('#click-".$resource['rid']."').click(function(e){
             e.preventDefault();

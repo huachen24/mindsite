@@ -43,10 +43,12 @@
     function on(rid) {
         var resource = document.getElementById("overlay-"+rid);
         resource.style.display = "flex";
+        document.getElementById("x-"+rid).style.display = "flex";
     }
 
     function off(rid) {
         document.getElementById("overlay-"+rid).style.display = "none";
+        document.getElementById("x-"+rid).style.display = "none";
     }
 
 </script>
