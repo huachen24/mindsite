@@ -24,9 +24,9 @@
             <p>".$resource['address']."</p>
             <p>".$resource['longdesc']."</p>";
         echo "<div class='review'>
-            <form action='add_review.php' method='post'>
+            <form action='add_rating.php' method='post'>
             <input type='hidden' name='rid' value='".$resource['rid']."'>
-            <input type='submit' name='submit' value='Add a review'/>
+            <input type='submit' name='submit' value='Rate this resource'/>
             </form>
             </div>";
         echo "</div>";
