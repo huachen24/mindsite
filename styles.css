@@ -130,7 +130,7 @@ body {
 }
 
 .search {
-    width: 70vw;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -198,7 +198,7 @@ body {
 /*****************/
 
 #filter-button {
-    width: 100%;
+    width: 60vw;
     text-align: center;
     font-size: 1.2em;
     cursor: pointer;
@@ -226,8 +226,9 @@ body {
 
 #filters {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    min-width: 60vw;
+    max-width: 60vw;
     justify-content: space-between;
     overflow: hidden;
     max-height: 0;
@@ -239,6 +240,27 @@ body {
 
 #filters > div {
     margin: 1em 2em;
+}
+
+#filter1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+#filter1 > div {
+    margin: 1em;
+}
+
+#filter2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#filter2 > div {
+    margin: 1em;
     flex: 1;
 }
 
@@ -253,6 +275,22 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.dropbtn {
+    padding: 0;
+    margin: 0;
+}
+
+.drop-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    color: white;
+}
+
+.drop-content > label {
+    margin: 0.25em 0.5em;
 }
 
 /*******************/
@@ -432,6 +470,30 @@ div[id^='x-'] {
     font-family: Varela Round;
 }
 
+#overlayinfo{
+    display: flex;
+    flex-direction: row;
+}
+
+.overlay-img {
+    padding: 10px;
+}
+
+.overlay-img img {
+    border-radius: 8px;
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
+
+.overlay-details {
+    padding: 0em 2em;
+}
+
+.ratings td {
+    padding: 0 15px 0 0;
+}
+
 #overlaytext a {
     color: white;
     font-family: Noto Sans SC;
@@ -442,10 +504,33 @@ div[id^='x-'] {
     color: var(--yellow);
 }
 
-.review {
+
+/*****************/
+/**** Review ****/
+/*****************/
+
+
+.review{
+    margin-top: 4em;
+    text-align: center;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.review-fields{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+}
+
+.review-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+}
+
+.review-label {
+    text-align: left;
 }
 
 .review input {
@@ -453,19 +538,16 @@ div[id^='x-'] {
     border-radius: 1em;
     background-color: var(--buttons);
     padding: 3px 10px;
-    text-align: right;
     cursor: pointer;
 }
 
-/*****************/
-/**** Review ****/
-/*****************/
-
 .rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+    float: center;
+    height: 70px;
+    padding: 10px 10px;
+    margin-left: auto;
 }
+
 .rate:not(:checked) > input {
     position:absolute;
     top:-9999px;

@@ -1,65 +1,95 @@
 <div id='filters'>
-    <div class='price-filter'>
-        <label>Max cost: <br><input type='number' min='0' max='500' id='price' name='price' value='500'></label><br>
-        <input type='range' min='0' max='500' class='slider' id='priceRange' value='500'>
-        <div class='price-label'>
-            <div>$0</div>
-            <div>$500</div>
+
+    <div id='filter1'>
+        <div class='price-filter'>
+            <label>Max cost: <br><input type='number' min='0' max='500' id='price' name='price' value='500'></label><br>
+            <input type='range' min='0' max='500' class='slider' id='priceRange' value='500'>
+            <div class='price-label'>
+                <div>$0</div>
+                <div>$500</div>
+            </div>
+        </div>
+
+        <div class='age-filter'>
+            <label>Your age: <br>
+                <input type='number' id='age' name='age' min='0' max='100' value='0'>
+            </label>
+        </div>
+        
+        <div class='location-filter'>
+            <label>Location: <br>
+                <div class='categories'>
+                    <label>
+                        <input type='checkbox' name='location' value='north'>North
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location' value='south'>South
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location' value='east'>East
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location' value='west'>West
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location' value='central'>Central
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location' value='online'>Online
+                    </label>
+                </div>
+            </label>
         </div>
     </div>
-    <div class='age-filter'>
-        <label>Your age: <br>
-            <input type='number' id='age' name='age' min='0' max='100' value='0'>
-        </label>
+
+    <div id='filter2'>
+        <div class='specialty-filter'>
+            <label>Specialties: <br>
+                <input type="text" placeholder="Search..." id="specialtysearch" onkeyup="specialtyFilter()"><br>
+                <div id="specialties" class="drop-content">
+                    <?php
+                        $result = mysqli_query($conn, "SELECT * FROM specialties");
+                        if ($result == FALSE) {
+                            echo "No specialty filters";
+                        } else {
+                            $queryResult = mysqli_num_rows($result);
+                            if ($queryResult > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<label><input type='checkbox' name='specialty' value='".$row['specialty']."'>".$row['specialty']."</label>";
+                                }
+                            } else {
+                                echo "No specialty filters";
+                            }
+                        }
+                    ?>
+                </div>
+            </label>
+        </div>
+
+        <div class='modality-filter'>
+            <label>Modalities: <br>
+                <input type="text" placeholder="Search..." id="modalitysearch" onkeyup="modalityFilter()"><br>
+                <div id="modalities" class="drop-content">
+                    <?php
+                        $result = mysqli_query($conn, "SELECT * FROM modalities");
+                        if ($result == FALSE) {
+                            echo "No modality filters";
+                        } else {
+                            $queryResult = mysqli_num_rows($result);
+                            if ($queryResult > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<label><input type='checkbox' name='modality' value='".$row['modality']."'>".$row['modality']."</label>";
+                                }
+                            } else {
+                                echo "No modality filters";
+                            }
+                        }
+                    ?>
+                </div>
+            </label>
+        </div>
     </div>
-    <div class='category-filter'>
-        <label>Categories: <br>
-            <div class='categories'>
-                <label>
-                    <input type='checkbox' name='category' value='counselling'>Counselling
-                </label>
-                <label>
-                    <input type='checkbox' name='category' value='self-help'>Self-help
-                </label>
-                <label>
-                    <input type='checkbox' name='category' value='treatment'>Treatment
-                </label>
-                <label>
-                    <input type='checkbox' name='category' value='suicide'>Suicide Prevention
-                </label>
-                <label>
-                    <input type='checkbox' name='category' value='crisis'>Crisis Support
-                </label>
-                <label>
-                    <input type='checkbox' name='category' value='chat'>Chat
-                </label>
-            </div>
-        </label>
-    </div>
-    <div class='mode-filter'>
-        <label>Location: <br>
-            <div class='categories'>
-                <label>
-                    <input type='checkbox' name='location' value='north'>North
-                </label>
-                <label>
-                    <input type='checkbox' name='location' value='south'>South
-                </label>
-                <label>
-                    <input type='checkbox' name='location' value='east'>East
-                </label>
-                <label>
-                    <input type='checkbox' name='location' value='west'>West
-                </label>
-                <label>
-                    <input type='checkbox' name='location' value='central'>Central
-                </label>
-                <label>
-                    <input type='checkbox' name='location' value='online'>Online
-                </label>
-            </div>
-        </label>
-    </div>
+
 </div>
 <div id='filter-button'>Filter Results</div>
 
@@ -74,7 +104,39 @@
         if (filters.style.maxHeight) {
             filters.style.maxHeight = null;
         } else {
-            filters.style.maxHeight = '200px';
+            filters.style.maxHeight = '1500px';
+        }
+    }
+
+    function specialtyFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("specialtysearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("specialties");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    function modalityFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("modalitysearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("modalities");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
         }
     }
 

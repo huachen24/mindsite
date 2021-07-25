@@ -20,7 +20,7 @@
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
     $resource_offset = ($current_page-1)*$perpage;
     include 'navbar.php';
-    if (str_contains($_SERVER['REQUEST_URI'], 'index.php')) {
+    if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || $_SERVER['REQUEST_URI']=="/sync/") {
         echo "<div class='main-home'>";
     } else {
         echo "<div class='main'>";
