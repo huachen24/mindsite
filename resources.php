@@ -1,6 +1,8 @@
 <?php
     include 'header.php';
-?>
+    if (isset($_GET['resource'])) { 
+        include 'resource.php';
+    } else { ?>
 
 <div class='resource-search'>
     <form method='POST' action='search.php'>
@@ -34,23 +36,9 @@
         }
     ?>
 </div>
+<?php } ?>
 
 </div>
 </div>
-
-<script>
-
-    function on(rid) {
-        var resource = document.getElementById("overlay-"+rid);
-        resource.style.display = "flex";
-        document.getElementById("x-"+rid).style.display = "flex";
-    }
-
-    function off(rid) {
-        document.getElementById("overlay-"+rid).style.display = "none";
-        document.getElementById("x-"+rid).style.display = "none";
-    }
-
-</script>
 </body>
 </html>
