@@ -12,10 +12,10 @@ if (isset($_SESSION["user"])) {
     <h3>Select an action</h3>
 
     <div class='action_list'>
-    <button><a href='add_resource.php'>Add a resource</a></button>
-    <button><a href='edit_resource.php'>Edit/Delete resources</a></button>
-    <button><a>placeholder</a></button>
-    <button><a>placeholder</a></button>
+    <a href='add_resource.php'>Add a resource</a>
+    <a href='edit_resource.php'>Edit/Delete resources</a>
+    <a href='approve_ratings.php'>Approve ratings</a>
+    <a href='reset_clicks.php'>Reset clicks</a>
     </div>
 
     <form action='includes/logout.inc.php' method='POST'>

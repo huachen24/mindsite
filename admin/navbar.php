@@ -33,6 +33,24 @@
         <a href="edit_resource.php">Edit Resource</a>
     </div>
     <?php 
+        if (strpos($_SERVER['REQUEST_URI'], 'approve_ratings.php') !== false) {
+            echo "<div class='link active'>";
+        } else {
+            echo "<div class='link'>";
+        }
+    ?>
+        <a href="approve_ratings.php">Approve Ratings</a>
+    </div>
+    <?php 
+        if (strpos($_SERVER['REQUEST_URI'], 'reset_clicks.php') !== false) {
+            echo "<div class='link active'>";
+        } else {
+            echo "<div class='link'>";
+        }
+    ?>
+        <a href="reset_clicks.php">Reset Clicks</a>
+    </div>
+    <?php 
         if (strpos($_SERVER['REQUEST_URI'], 'settings.php') !== false) {
             echo "<div class='link active'>";
         } else {

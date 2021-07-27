@@ -8,18 +8,18 @@
 <form action='includes/signup.inc.php' method='POST'>
     <div class='field'>
     <label for='user'>Username: </label>
-    <input type='text' id='user' name='user' placeholder='Enter username'>
+    <input type='text' id='user' name='user' placeholder='Enter username' required>
     </div>
     <div class='field'>
     <label for='pwd'>Password: </label>
-    <input type='password' id='pwd' name='pwd' placeholder='Enter password'>
+    <input type='password' id='pwd' name='pwd' placeholder='Enter password' required>
     </div>
     <div class='field'>
     <label for='pwd2'>Confirm Password: </label>
-    <input type='password' id='pwd2' name='pwd2' placeholder='Confirm password'>
+    <input type='password' id='pwd2' name='pwd2' placeholder='Confirm password' required>
     </div>
     <div class='buttons'>
-    <button><a href='login.php'>Back</a></button>
+    <a href='login.php'>Back</a>
     <button type='submit' name='submit'>Sign Up</button>
     </div>
 </form>

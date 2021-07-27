@@ -17,36 +17,53 @@
             }
             echo "<div class='entry-details'>";
             echo "<h1><a href='".$resource['weblink']."' id='click-".$resource['rid']."'>".$resource['title']."</a></h1>
-            <p>".$resource['price']."</p>
-            <div class='ratings'>
             <table>
-            <tr><td>Accessibility</td><td>";
-            for ($x = 0; $x < $resource['accessibility']; $x++) {
-                echo "★";
+            <tr><th>Age range: </th>
+            <td>".$resource['agelower']."-".$resource['ageupper']."</td></tr>
+            <tr><th>Price: </th>
+            <td>".$resource['price']."</td></tr>
+            <tr><th>Ratings: </th>
+            <td><div class='ratings'>";
+            if ($resource['ratingcount']==0) {
+                echo "<p>There are no ratings yet</p>";
+            } else {
+                echo "<table>
+                <tr><td>Accessibility</td><td>";
+                $accessibility = (int)$resource['accessibility']/$resource['ratingcount'];
+                for ($x = 0; $x < $accessibility; $x++) {
+                    echo "★";
+                }
+                echo "</td></tr><tr><td>Approachability</td><td>";
+                $approachability = (int)$resource['approachability']/$resource['ratingcount'];
+                for ($x = 0; $x < $approachability; $x++) {
+                    echo "★";
+                }
+                echo "</td></tr><tr><td>Price</td><td>";
+                $price = (int)$resource['pricerating']/$resource['ratingcount'];
+                for ($x = 0; $x < $price; $x++) {
+                    echo "★";
+                }
+                echo "</td></tr><tr><td>Service</td><td>";
+                $service = (int)$resource['service']/$resource['ratingcount'];
+                for ($x = 0; $x < $service; $x++) {
+                    echo "★";
+                }
+                echo "</td></tr><tr><td colspan='2'>Out of ".$resource['ratingcount']." total ratings</td>";
+                echo "</tr></table>";
             }
-            echo "<tr><td>Approachability</td><td>";
-            for ($x = 0; $x < $resource['approachability']; $x++) {
-                echo "★";
-            }
-            echo "<tr><td>Price</td><td>";
-            for ($x = 0; $x < $resource['pricerating']; $x++) {
-                echo "★";
-            }
-            echo "<tr><td>Service</td><td>";
-            for ($x = 0; $x < $resource['service']; $x++) {
-                echo "★";
-            }
-            echo "</table>
-            </div>
-            <p>".$resource['longdesc']."</p>
-            <p>Address / contact</p>
-            <p>".$resource['address']."</p>";
+            echo "</div></td></tr>
+            <tr><th>Description: </th>
+            <td>".$resource['longdesc']."</td></tr>
+            <tr><th>Address: </th>
+            <td>".$resource['address']."</td></tr>
+            </table>";
             echo "</div>"; //close entry-details
             echo "</div>"; // close entry-info
             echo "<div class='review'>
                 <h2>Leave a Review</h2>
                 <form action='submit_rating.php' method='post'>
                 <input type='hidden' id='rid' name='rid' value='".$resource['rid']."'>
+                <input type='hidden' id='title' name='title' value='".$resource['title']."'>
                 <div class='review-fields'>
                 <div class='review-row'>
                 <div class='review-label'>Accessibility</div>

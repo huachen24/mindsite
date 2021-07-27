@@ -14,7 +14,7 @@
             </form>
 
             <div class='keywords'>";
-                $keywords = json_decode($resource['keywords']);
+                $keywords = json_decode($resource['specialty']);
                 for ($i = 0; $i < count($keywords); $i++) {
                     echo "<div class='keyword'>".$keywords[$i]."</div>";
                 }

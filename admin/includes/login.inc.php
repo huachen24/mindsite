@@ -11,11 +11,14 @@
                 session_start();
                 $_SESSION["user"] = $user;
                 header("Location: ../index.php");
+                exit();
             } else {
                 header("Location: ../login.php?error=pwd");
+                exit();
             }
         }
     } else {
         header("Location: ../login.php?error=user");
+        exit();
     }
 ?>

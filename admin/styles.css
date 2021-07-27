@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     text-align: center;
     font-family: Varela Round;
     color: var(--titles);
@@ -79,11 +79,11 @@ body {
 }
 
 form {
-    width: 50%;
-    max-width: 320px;
+    min-width: 50%;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     text-align: left;
     font-family: Noto Sans SC;
 }
@@ -111,26 +111,29 @@ button {
     color: white;
     transition: 0.5s;
     border: none;
-
-}
-
-button a {
-    color: white;
-    text-decoration: none;
-    cursor: default;
-    transition: 0.5s;
-    font-family: varela round;
 }
 
 button:hover{
     background: var(--buttons);
     color: white;
-    padding: 10px;
 }
 
-button a:hover{
+.buttons a {
+    text-decoration: none;
+    background: var(--yellow);
+    color: white;
+    cursor: default;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 20px;
+    border: none;
+    transition: 0.5s;
+    font-family: varela round;
+}
+
+.buttons a:hover{
     background: var(--buttons);
-    color: white
+    color: white;
 }
 
 
@@ -146,8 +149,8 @@ button a:hover{
     top: 0;
     width: 100%;
     padding: 2em;
-    padding-left: 3em;
-    padding-right: 3em;
+    /* padding-left: 3em;
+    padding-right: 3em; */
     font-size: 1em;
     font-family: Noto Sans SC;
     text-transform: uppercase;
@@ -208,14 +211,124 @@ button a:hover{
     border: none; 
 }
 
-.logout_btn:hover {
-    /*border-bottom: 1px solid black;*/
-}
-
 .logout_btn a:hover {
     color: var(--buttons);
 }
 
-.action_list button {
-    margin: 20px;
+.action_list {
+    margin: 10px 0;
+}
+
+.action_list a {
+    text-decoration: none;
+    background: var(--yellow);
+    color: white;
+    cursor: default;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    transition: 0.5s;
+    font-family: varela round;
+}
+
+.action_list a:hover{
+    background: var(--buttons);
+    color: white;
+}
+
+/****************/
+/* Add Resource */
+/****************/
+
+.drop-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    color: var(--titles);
+}
+
+.drop-content > label {
+    margin: 0.25em 0.5em;
+}
+
+#add {
+    display: flex;
+    justify-content: center;
+    width: 30vw;
+    padding-bottom: 3em;
+}
+
+#add form {
+    min-width: none;
+    max-width: none;
+    width: 100%;
+}
+
+#add table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#add th, td {
+    padding: 1em;
+}
+
+/*****************/
+/* Edit Resource */
+/*****************/
+
+#titles {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#titles a {
+    all: unset;
+    display: inline;
+    text-align: left;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+#titles a:hover {
+    text-decoration: underline;
+    color:rgb(26, 65, 91);
+    cursor: pointer;
+}
+
+#edit {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    padding-bottom: 3em;
+}
+
+#edit form {
+    min-width: none;
+    max-width: none;
+    width: 100%;
+}
+
+#edit table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#edit th, td {
+    padding: 1em;
+}
+
+/*******************/
+/* Approve Ratings */
+/*******************/
+
+#approve_ratings table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#approve_ratings th, td {
+    padding: 1em;
 }

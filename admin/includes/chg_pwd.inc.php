@@ -20,15 +20,19 @@
     }
     if ($pwd!=$pwd2) {
         header("Location: ../chg_pwd.php?error=pwd");
+        exit();
     } else if (password_verify($old_pwd, $saved_pwd)) {
         $sql = "UPDATE `users` SET `pwd`='$hashed_pwd' WHERE username = '$user'";
         $result2 = mysqli_query($conn, $sql);
         if ($result2) {
             header("Location: ../chg_pwd.php?change=success");
+            exit();
         } else {
             header("Location: ../chg_pwd.php?change=error");
+            exit();
         }
     } else {
         header("Location: ../chg_pwd.php?error=invalid");
+        exit();
     }
 ?>

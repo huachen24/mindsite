@@ -8,14 +8,14 @@
 <form action='includes/login.inc.php' method='POST'>
     <div class='field'>
     <label for='user'>Admin ID</label>
-    <input type='text' id='user' name='user' placeholder='Enter username'>
+    <input type='text' id='user' name='user' placeholder='Enter username' required>
     </div>
     <div class='field'>
     <label for='pwd'>Password</label>
-    <input type='password' id='pwd' name='pwd' placeholder='Enter password'>
+    <input type='password' id='pwd' name='pwd' placeholder='Enter password' required>
     </div>
     <div class='buttons'>
-    <button><a href='signup.php'>Sign Up</a></button>
+    <a href='signup.php'>Sign Up</a>
     <button type='submit' name='submit'>Login</button>
     </div>
 </form>

@@ -471,6 +471,11 @@ body {
     padding: 0em 2em;
 }
 
+.entry-details th, td {
+    padding: 10px;
+    vertical-align: top;
+}
+
 .ratings td {
     padding: 0 15px 0 0;
 }
