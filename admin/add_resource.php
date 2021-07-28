@@ -40,25 +40,25 @@
 <form action='includes/add_resource.inc.php' method='POST' enctype='multipart/form-data'>
     <table>
     <tr><th>Title</th>
-    <td><input type='text' name='title' size='48' required></td></tr>
+    <td><div class='testing'><input type='text' name='title' required></div></td></tr>
 
     <tr><th>Short Description</th>
-    <td><textarea name='shortdesc' rows='10' cols='50' required></textarea></td></tr>
+    <td><textarea name='shortdesc' rows='10' required></textarea></td></tr>
 
     <tr><th>Long Description</th>
-    <td><textarea name='longdesc' rows='20' cols='50' required></textarea></td></tr>
+    <td><textarea name='longdesc' rows='20' required></textarea></td></tr>
 
     <tr><th>Price</th>
-    <td><input type='text' name='price' size='48' required></td></tr>
+    <td><input type='text' name='price' required></td></tr>
 
     <tr><th>Address</th>
-    <td><input type='text' name='address' size='48' required></td></tr>
+    <td><input type='text' name='address' required></td></tr>
 
     <tr><th>Weblink</th>
-    <td><input type='text' name='weblink' size='48' required></td></tr>
+    <td><input type='text' name='weblink' required></td></tr>
 
     <tr><th>Type</th>
-    <td><input type='text' placeholder='Search...' id='typesearch' onkeyup='typeFilter()' size='48'>
+    <td><input type='text' placeholder='Search...' id='typesearch' onkeyup='typeFilter()'>
     <div id='types' class='drop-content'>
         <?php
             $resultfilter = mysqli_query($conn, "SELECT * FROM types");
@@ -78,7 +78,7 @@
     </div></td></tr>
 
     <tr><th>Specialty</th>
-    <td><input type='text' placeholder='Search...' id='specialtysearch' onkeyup='specialtyFilter()' size='48'>
+    <td><input type='text' placeholder='Search...' id='specialtysearch' onkeyup='specialtyFilter()'>
     <div id='specialties' class='drop-content'>
         <?php
             $resultfilter = mysqli_query($conn, "SELECT * FROM specialties");
@@ -98,7 +98,7 @@
     </div></td></tr>
 
     <tr><th>Modality</th>
-    <td><input type='text' placeholder='Search...' id='modalitysearch' onkeyup='modalityFilter()' size='48'>
+    <td><input type='text' placeholder='Search...' id='modalitysearch' onkeyup='modalityFilter()'>
     <div id='modalities' class='drop-content'>
         <?php
             $resultfilter = mysqli_query($conn, "SELECT * FROM modalities");

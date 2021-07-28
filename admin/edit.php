@@ -8,49 +8,73 @@
 <div class='sidebar' style='justify-content:start; margin-top:6em;'>
 <h3>Edit Resource</h3>
 
+<?php
+if (isset($_POST['success'])) {
+    echo "<p>Successfully updated ".
+    ($_POST['title'] ? '| title ' : '').
+    ($_POST['shortdesc'] ? '| short description ' : '').
+    ($_POST['longdesc'] ? '| long description ' : '').
+    ($_POST['price'] ? '| price ' : '').
+    ($_POST['address'] ? '| address ' : '').
+    ($_POST['weblink'] ? '| weblink ' : '').
+    ($_POST['agelower'] ? '| lower age limit ' : '').
+    ($_POST['ageupper'] ? '| upper age limit ' : '').
+    ($_POST['type'] ? '| type ' : '').
+    ($_POST['specialty'] ? '| specialty ' : '').
+    ($_POST['modality'] ? '| modality ' : '').
+    ($_POST['image'] ? '| image ' : '').
+    "|";
+}
+
+?>
+
 <div id='edit'>
 <?php
     $sql = "SELECT * FROM resources WHERE `rid` = ?";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "i", $_GET['rid']);
-
+        if (isset($_POST['success'])) {
+            $rid = $_POST['rid'];
+        } else {
+            $rid = $_GET['rid'];
+        }
+        mysqli_stmt_bind_param($stmt, "i", $rid);
         if (mysqli_stmt_execute($stmt)) {
             $result = mysqli_stmt_get_result($stmt);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<form action='includes/edit.inc.php' method='POST'>
-                    <input type='hidden' name='rid' value='".$_GET['rid']."'>
+                    <input type='hidden' name='rid' value='".$rid."'>
                     <table>
                     <tr><th></th><th>Current Details</th><th>New Details</th>
 
                     <tr><th>Title</th>
                     <td>".$row['title']."</td>
-                    <td><input type='text' name='title' size='48'></td></tr>
+                    <td><input type='text' name='title'></td></tr>
 
                     <tr><th>Short Description</th>
                     <td>".$row['shortdesc']."</td>
-                    <td><textarea name='shortdesc' rows='10' cols='50'></textarea></td></tr>
+                    <td><textarea name='shortdesc' rows='10'></textarea></td></tr>
 
                     <tr><th>Long Description</th>
                     <td>".$row['longdesc']."</td>
-                    <td><textarea name='longdesc' rows='20' cols='50'></textarea></td></tr>
+                    <td><textarea name='longdesc' rows='20'></textarea></td></tr>
 
                     <tr><th>Price</th>
                     <td>".$row['price']."</td>
-                    <td><input type='text' name='price' size='48'></td></tr>
+                    <td><input type='text' name='price'></td></tr>
 
                     <tr><th>Address</th>
                     <td>".$row['address']."</td>
-                    <td><input type='text' name='address' size='48'></td></tr>
+                    <td><input type='text' name='address'></td></tr>
 
                     <tr><th>Weblink</th>
                     <td>".$row['weblink']."</td>
-                    <td><input type='text' name='weblink' size='48'></td></tr>
+                    <td><input type='text' name='weblink'></td></tr>
 
-                    <tr><th>Type</th>
+                    <tr><th>Type (reselect even if no changes)</th>
                     <td>".$row['type']."</td>
-                    <td><input type='text' placeholder='Search...' id='typesearch' onkeyup='typeFilter()' size='48'>
+                    <td><input type='text' placeholder='Search...' id='typesearch' onkeyup='typeFilter()'>
                     <div id='types' class='drop-content'>";
                             $resultfilter = mysqli_query($conn, "SELECT * FROM types");
                             if ($resultfilter == FALSE) {
@@ -67,9 +91,9 @@
                             }
                     echo "</div></td></tr>
 
-                    <tr><th>Specialty</th>
+                    <tr><th>Specialty (reselect even if no changes)</th>
                     <td>".$row['specialty']."</td>
-                    <td><input type='text' placeholder='Search...' id='specialtysearch' onkeyup='specialtyFilter()' size='48'>
+                    <td><input type='text' placeholder='Search...' id='specialtysearch' onkeyup='specialtyFilter()'>
                     <div id='specialties' class='drop-content'>";
                             $resultfilter = mysqli_query($conn, "SELECT * FROM specialties");
                             if ($resultfilter == FALSE) {
@@ -86,9 +110,9 @@
                             }
                     echo "</div></td></tr>
 
-                    <tr><th>Modality</th>
+                    <tr><th>Modality (reselect even if no changes)</th>
                     <td>".$row['modality']."</td>
-                    <td><input type='text' placeholder='Search...' id='modalitysearch' onkeyup='modalityFilter()' size='48'>
+                    <td><input type='text' placeholder='Search...' id='modalitysearch' onkeyup='modalityFilter()'>
                     <div id='modalities' class='drop-content'>";
                             $resultfilter = mysqli_query($conn, "SELECT * FROM modalities");
                             if ($resultfilter == FALSE) {
@@ -126,16 +150,19 @@
                     </form>";
                 }
             } else {
-                header("Location: ../add_resource.php?error=noresult");
-                exit();
+                echo "<h1>".mysqli_error($conn)."</h1";
+                // header("Location: edit_resource.php?error=noresult");
+                // exit();
             }
         } else {
-            header("Location: ../add_resource.php?error=execute");
-            exit();
+            echo "<h1>".mysqli_error($conn)."</h1";
+            // header("Location: edit_resource.php?error=execute");
+            // exit();
         }
     } else {
-        header("Location: ../add_resource.php?error=prepare");
-        exit();
+        echo "<h1>".mysqli_error($conn)."</h1";
+        // header("Location: edit_resource.php?error=prepare");
+        // exit();
     }
 
     mysqli_stmt_close($stmt);
@@ -145,4 +172,56 @@
 </div>
 </div>
 </body>
+
+<script>
+    
+    function typeFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("typesearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("types");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    function specialtyFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("specialtysearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("specialties");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    function modalityFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("modalitysearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("modalities");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
 </html>

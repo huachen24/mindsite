@@ -6,7 +6,7 @@
 <div class='main'>
 <div class='sidebar'>
 <h3>Change Password</h3>
-<form action='includes/chg_pwd.inc.php' method='POST'>
+<form id='chg-form' action='includes/chg_pwd.inc.php' method='POST'>
     <div class='field'>
         <label for='old_pwd'>Current Password: </label>
         <input type='password' id='old_pwd' name='old_pwd' placeholder='Enter current password'>

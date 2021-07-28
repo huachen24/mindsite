@@ -15,7 +15,7 @@ if (isset($_SESSION["user"])) {
     <a href='add_resource.php'>Add a resource</a>
     <a href='edit_resource.php'>Edit/Delete resources</a>
     <a href='approve_ratings.php'>Approve ratings</a>
-    <a href='reset_clicks.php'>Reset clicks</a>
+    <a href='track_resources.php'>Track resources</a>
     </div>
 
     <form action='includes/logout.inc.php' method='POST'>

@@ -3,7 +3,6 @@
 
     if (empty($_FILES['img']['name'])) {
         $updateimage = FALSE;
-        $image = "0";
     } else {
         $updateimage = TRUE;
         $target_dir = "../../profiles/";
@@ -12,176 +11,302 @@
         $image = $imageFileType;
 
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "svg" ) {
-            header("Location: ../add_resource.php?error=imagetype");
+            header("Location: ../edit.php?error=imagetype");
             exit();
         }
         
         if ($_FILES["img"]["size"] > 500000) {
-            header("Location: ../add_resource.php?error=imagesize");
+            header("Location: ../edit.php?error=imagesize");
             exit();
         }
     }
 
+    $rid = $_POST['rid'];
+
     if (!empty($_POST['title'])) {
         $title = $_POST['title'];
-        $updatetitle = TRUE;
-    } else {
-        $updatetitle = FALSE;
+        $sql = generateUpdateQuery("title");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $title, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successtitle = TRUE;
+            }
+            else {
+                $successtitle = FALSE;
+            }
+        } else {
+            $successtitle = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['shortdesc'])) {
-        $shortdesc = $_POST['title'];
-        $updateshortdesc = TRUE;
-    } else {
-        $updateshortdesc = FALSE;
+        $shortdesc = $_POST['shortdesc'];
+        $sql = generateUpdateQuery("shortdesc");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $shortdesc, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successshortdesc = TRUE;
+            }
+            else {
+                $successshortdesc = FALSE;
+            }
+        } else {
+            $successshortdesc = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['longdesc'])) {
         $longdesc = $_POST['longdesc'];
-        $updatelongdesc = TRUE;
-    } else {
-        $updatelongdesc = FALSE;
+        $sql = generateUpdateQuery("longdesc");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $longdesc, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successlongdesc = TRUE;
+            }
+            else {
+                $successlongdesc = FALSE;
+            }
+        } else {
+            $successlongdesc = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['price'])) {
         $price = $_POST['price'];
-        $updateprice = TRUE;
-    } else {
-        $updateprice = FALSE;
+        $sql = generateUpdateQuery("price");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $price, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successprice = TRUE;
+            }
+            else {
+                $successprice = FALSE;
+            }
+        } else {
+            $successprice = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['address'])) {
         $address = $_POST['address'];
-        $updateaddress = TRUE;
-    } else {
-        $updateaddress = FALSE;
+        $sql = generateUpdateQuery("address");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $address, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successaddress = TRUE;
+            }
+            else {
+                $successaddress = FALSE;
+            }
+        } else {
+            $successaddress = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['weblink'])) {
         $weblink = $_POST['weblink'];
-        $updateweblink = TRUE;
-    } else {
-        $updateweblink = FALSE;
+        $sql = generateUpdateQuery("weblink");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $weblink, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successweblink = TRUE;
+            }
+            else {
+                $successweblink = FALSE;
+            }
+        } else {
+            $successweblink = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['agelower'])) {
         $agelower = $_POST['agelower'];
-        $updateagelower = TRUE;
-    } else {
-        $updateagelower = FALSE;
+        $sql = generateUpdateQuery("agelower");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $agelower, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successagelower = TRUE;
+            }
+            else {
+                $successagelower = FALSE;
+            }
+        } else {
+            $successagelower = FALSE;
+        }
+        mysqli_stmt_close($stmt);
     }
 
     if (!empty($_POST['ageupper'])) {
         $ageupper = $_POST['ageupper'];
-        $updateageupper = TRUE;
-    } else {
-        $updateageupper = FALSE;
-    }
+        $sql = generateUpdateQuery("ageupper");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $ageupper, $rid);
 
-    if (!empty($_POST['type'])) {
-        $typearray = $_POST['type'];
-        $type = "['".$typearray[0]."'";
-        for ($i=1; $i<count($typearray); $i++) {
-            $type .= ", '".$typearray[$i]."'";
+            if (mysqli_stmt_execute($stmt)) {
+                $successageupper = TRUE;
+            }
+            else {
+                $successageupper = FALSE;
+            }
+        } else {
+            $successageupper = FALSE;
         }
-        $type .= "]";
-        $updatetype = TRUE;
-    } else {
-        $updatetype = FALSE;
+        mysqli_stmt_close($stmt);
     }
-    
-    if (!empty($_POST['specialty'])) {
-        $specialtyarray = $_POST['specialty'];
-        $specialty = "[\"".$specialtyarray[0]."\"";
-        for ($i=1; $i<count($specialtyarray); $i++) {
-            $specialty .= ", \"".$specialtyarray[$i]."\"";
+
+    $typearray = $_POST['type'];
+    $type = "['".$typearray[0]."'";
+    for ($i=1; $i<count($typearray); $i++) {
+        $type .= ", '".$typearray[$i]."'";
+    }
+    $type .= "]";
+    $sql = generateUpdateQuery("type");
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "si", $type, $rid);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $successtype = TRUE;
         }
-        $specialty .= "]";
-        $updatespecialty = TRUE;
-    } else {
-        $updatespecialty = FALSE;
-    }
-
-    if (!empty($_POST['modality'])) {
-        $modalityarray = $_POST['modality'];
-        $modality = "['".$modalityarray[0]."'";
-        for ($i=1; $i<count($modalityarray); $i++) {
-            $modality .= ", '".$modalityarray[$i]."'";
+        else {
+            $successtype = FALSE;
         }
-        $modality .= "]";
-        $updatemodality = TRUE;
     } else {
-        $updatemodality = FALSE;
+        $successtype = FALSE;
     }
+    mysqli_stmt_close($stmt);
 
-    echo $updatetitle;
-    echo $updateshortdesc;
-    echo $updatelongdesc;
-    echo $updateprice;
-    echo $updateaddress;
-    echo $updateweblink;
-    echo $updatetype;
-    echo $updatespecialty;
-    echo $updatemodality;
-    echo $updateagelower;
-    echo $updateageupper;
-    echo $updateimage;
 
-    // $sql = "UPDATE `resources` SET ".
-    // ($updatetitle ? "`title`=?, " : "").
-    // ($updateshortdesc ? "`shortdesc`=?, " : "").
-    // ($updatelongdesc ? "`longdesc`=?, " : "").
-    // ($updateprice ? "`price`=?, " : "").
-    // ($updateaddress ? "`address`=?, " : "").
-    // ($updateweblink ? "`weblink`=?, " : "").
-    // ($updatetype ? "`type`=?, " : "").
-    // ($updatespecialty ? "`specialty`=?, " : "").
-    // ($updatemodality ? "`modality`=?, " : "").
-    // ($updateagelower ? "`agelower`=?, " : "");
-    // ($updateageupper ? "`ageupper`=?, " : "").
-    // ($updateimage ? "`image`=?, " : "").
-    // "`rid`=? WHERE `rid` = ?";
+    $specialtyarray = $_POST['specialty'];
+    $specialty = "['".$specialtyarray[0]."'";
+    for ($i=1; $i<count($specialtyarray); $i++) {
+        $specialty .= ", '".$specialtyarray[$i]."'";
+    }
+    $specialty .= "]";
+    $sql = generateUpdateQuery("specialty");
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "si", $specialty, $rid);
 
-    // if ($stmt = mysqli_prepare($conn, $sql)) {
-    //     mysqli_stmt_bind_param($stmt, "sssssssssiis", $title, $shortdesc, $longdesc, $price, $address, $weblink, $type, $specialty, $modality, $agelower, $ageupper, $image);
-
-    //     if (mysqli_stmt_execute($stmt)) {
-    //         echo "SUCCESS";
-    //     }
-    //     else {
-    //         echo mysqli_error($conn);
-    //         header("Location: ../add_resource.php?error=execute");
-    //         exit();
-    //     }
-    // } else {
-    //     header("Location: ../add_resource.php?error=prepare");
-    //     exit();
-    // }
-
-    // mysqli_stmt_close($stmt);
-
-    $getrid = "SELECT `rid` FROM `resources` WHERE `title` = '$title'";
-    $result = mysqli_query($conn, $getrid);
-    if ($row = mysqli_fetch_assoc($result)) {
-        $rid = $row['rid'];    
+        if (mysqli_stmt_execute($stmt)) {
+            $successspecialty = TRUE;
+        }
+        else {
+            $successspecialty = FALSE;
+        }
     } else {
-        // header("Location: ../add_resource.php?error=execute");
-        // exit();
+        $successspecialty = FALSE;
     }
+    mysqli_stmt_close($stmt);
 
-    $target_file = $target_dir . $rid . "." . $imageFileType;
 
-    if (file_exists($target_file)) {
-        // header("Location: ../add_resource.php?error=exists");
-        // exit();
+    $modalityarray = $_POST['modality'];
+    $modality = "['".$modalityarray[0]."'";
+    for ($i=1; $i<count($modalityarray); $i++) {
+        $modality .= ", '".$modalityarray[$i]."'";
     }
+    $modality .= "]";
+    $sql = generateUpdateQuery("modality");
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "si", $modality, $rid);
 
-    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-        // header("Location: ../add_resource.php?add=success");
-        // exit();
+        if (mysqli_stmt_execute($stmt)) {
+            $successmodality = TRUE;
+        }
+        else {
+            $successmodality = FALSE;
+        }
     } else {
-        // header("Location: ../add_resource.php?add=noimage");
-        // exit();
+        $successmodality = FALSE;
+    }
+    mysqli_stmt_close($stmt);
+
+    if ($updateimage) {
+        $target_file = $target_dir . $rid . "." . $imageFileType;
+
+        if (file_exists($target_file)) {
+            if (!unlink($target_file)) { 
+                $successimage = FALSE;
+            } 
+            else { 
+                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                    $sql = generateUpdateQuery("image");
+                    if ($stmt = mysqli_prepare($conn, $sql)) {
+                        mysqli_stmt_bind_param($stmt, "si", $image, $rid);
+
+                        if (mysqli_stmt_execute($stmt)) {
+                            $successimage = TRUE;
+                        }
+                        else {
+                            $successimage = FALSE;
+                        }
+                    } else {
+                        $successimage = FALSE;
+                    }
+                    mysqli_stmt_close($stmt);
+                } else {
+                    $successimage = FALSE;
+                }
+            }
+        } else {
+            if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                $sql = generateUpdateQuery("image");
+                if ($stmt = mysqli_prepare($conn, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "si", $image, $rid);
+
+                    if (mysqli_stmt_execute($stmt)) {
+                        $successimage = TRUE;
+                    }
+                    else {
+                        $successimage = FALSE;
+                    }
+                } else {
+                    $successimage = FALSE;
+                }
+                mysqli_stmt_close($stmt);
+            } else {
+                $successimage = FALSE;
+            }
+        }
+    }
+?>
+<form name='edit_return' action='../edit.php' method='POST'>
+    <input type='hidden' name='success' value='success'>
+    <input type='hidden' name='rid' value='<?php echo $rid?>'>
+    <input type='hidden' name='title' value='<?php echo $successtitle?>'>
+    <input type='hidden' name='shortdesc' value='<?php echo $successshortdesc?>'>
+    <input type='hidden' name='longdesc' value='<?php echo $successlongdesc?>'>
+    <input type='hidden' name='price' value='<?php echo $successprice?>'>
+    <input type='hidden' name='address' value='<?php echo $successaddress?>'>
+    <input type='hidden' name='weblink' value='<?php echo $successweblink?>'>
+    <input type='hidden' name='agelower' value='<?php echo $successagelower?>'>
+    <input type='hidden' name='ageupper' value='<?php echo $successageupper?>'>
+    <input type='hidden' name='type' value='<?php echo $successtype?>'>
+    <input type='hidden' name='specialty' value='<?php echo $successspecialty?>'>
+    <input type='hidden' name='modality' value='<?php echo $successmodality?>'>
+    <input type='hidden' name='image' value='<?php echo $successimage?>'>
+</form>
+
+<script type='text/javascript'>
+    document.edit_return.submit();
+</script>
+
+
+<?php
+
+    function generateUpdateQuery($col) {
+        return "UPDATE resources SET `".$col."`=? WHERE `rid`=?";
     }
 
 ?>

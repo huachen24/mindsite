@@ -15,7 +15,6 @@
 </div>
 
 <div class='resource-container'>
-    <div id="data"></div>
     <?php
         $sql = "SELECT * FROM resources ORDER BY clicks DESC, title ASC";
         $result = mysqli_query($conn, $sql);

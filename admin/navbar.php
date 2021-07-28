@@ -42,13 +42,13 @@
         <a href="approve_ratings.php">Approve Ratings</a>
     </div>
     <?php 
-        if (strpos($_SERVER['REQUEST_URI'], 'reset_clicks.php') !== false) {
+        if (strpos($_SERVER['REQUEST_URI'], 'track_resources.php') !== false) {
             echo "<div class='link active'>";
         } else {
             echo "<div class='link'>";
         }
     ?>
-        <a href="reset_clicks.php">Reset Clicks</a>
+        <a href="track_resources.php">Track Resources</a>
     </div>
     <?php 
         if (strpos($_SERVER['REQUEST_URI'], 'settings.php') !== false) {

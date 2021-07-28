@@ -13,13 +13,11 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<a href='edit.php?rid=".$row['rid']."'>".$row['title']."</a><br>";
+            echo "<a href='edit.php?rid=".$row['rid']."'>".$row['title']."</a>";
         }
     } else {
         echo "No resources";
     }
-
-
 ?>
 </div>
 
