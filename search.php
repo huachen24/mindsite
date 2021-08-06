@@ -44,7 +44,7 @@
 
         function generateSQL(mysqli $conn) {
             $search = mysqli_real_escape_string($conn, $_POST['search']);
-            $sql = "SELECT * FROM resources WHERE (keywords LIKE '%$search%' OR title LIKE '%$search%')";
+            $sql = "SELECT * FROM resources WHERE title LIKE '%$search%'";
             if (isset($_POST['price'])) {
                 $price = $_POST['price'];
                 if ($price != 500) {
@@ -57,14 +57,22 @@
                     $sql .= " AND ($age BETWEEN age')";
                 }
             }
-            if (isset($_POST['category'])) {
-                $category = mysqli_real_escape_string($conn, $_POST['category']);
-                $sql .= " AND JSON_CONTAINS(category, '%$category%')";
+            if (isset($_POST['specialty'])) {
+                $specialty = mysqli_real_escape_string($conn, $_POST['specialty']);
+                $sql .= " AND JSON_CONTAINS(specialty, '%$specialty%')";
             }
-            if (isset($_POST['location'])) {
-                $location = mysqli_real_escape_string($conn, $_POST['location']);
-                $sql .= " AND JSON_CONTAINS(location, '%$location%')";
+            if (isset($_POST['modality'])) {
+                $modality = mysqli_real_escape_string($conn, $_POST['modality']);
+                $sql .= " AND JSON_CONTAINS(modality, '%$modality%')";
             }
+            // if (isset($_POST['category'])) {
+            //     $category = mysqli_real_escape_string($conn, $_POST['category']);
+            //     $sql .= " AND JSON_CONTAINS(category, '%$category%')";
+            // }
+            // if (isset($_POST['location'])) {
+            //     $location = mysqli_real_escape_string($conn, $_POST['location']);
+            //     $sql .= " AND JSON_CONTAINS(location, '%$location%')";
+            // }
             $sql .= " ORDER BY clicks DESC, title ASC";
             return $sql;
         }

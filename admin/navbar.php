@@ -33,6 +33,15 @@
         <a href="edit_resource.php">Edit Resource</a>
     </div>
     <?php 
+        if (strpos($_SERVER['REQUEST_URI'], 'manage_quotes.php') !== false) {
+            echo "<div class='link active'>";
+        } else {
+            echo "<div class='link'>";
+        }
+    ?>
+        <a href="manage_quotes.php">Manage Quotes</a>
+    </div>
+    <?php 
         if (strpos($_SERVER['REQUEST_URI'], 'approve_ratings.php') !== false) {
             echo "<div class='link active'>";
         } else {
@@ -57,7 +66,7 @@
             echo "<div class='link'>";
         }
     ?>
-        <a href="chg_pwd.php">Settings</a>
+        <a href="settings.php">Settings</a>
     </div>
     </div>
     <div class='logout_btn'>

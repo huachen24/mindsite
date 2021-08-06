@@ -6,6 +6,12 @@
 <div class='main'>
 <div class='sidebar' style='justify-content:start; margin-top:6em;'>
 <h3>Edit resources</h3>
+<?php
+if (isset($_GET['delete']) && $_GET['delete']=='success') {
+    echo "<p>Successfully deleted the resource.</p>";
+}
+
+?>
 <input type="text" placeholder="Search..." id="search" onkeyup="searchFilter()"><br>
 <div id='titles'>
 <?php

@@ -335,6 +335,61 @@ table textarea {
     padding: 1em;
 }
 
+/*****************/
+/* Manage Quotes */
+/*****************/
+
+#add_quote {
+    padding: 10px 0;
+}
+
+#add_quote form {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+#add_quote textarea {
+    width: 100%;
+}
+
+#submit_quote {
+    width: 100px;
+    height: 100%;
+    margin: 0.5em;
+    border-radius: 20px;
+    font-family: Varela Round;
+    background: var(--yellow);
+    padding: 10px;
+    color: white;
+    transition: 0.5s;
+    border: none;
+    align-self: center;
+}
+
+#submit_quote:hover {
+    background: var(--buttons);
+    color: white;
+}
+
+#quotes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    padding-bottom: 3em;
+}
+
+#quotes table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#quotes th, td {
+    padding: 1em;
+}
+
 /*******************/
 /* Approve Ratings */
 /*******************/
@@ -386,6 +441,15 @@ table textarea {
 /************/
 /* Settings */
 /************/
+
+#approve_user table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#approve_user th, td {
+    padding: 1em;
+}
 
 #chg-form {
     min-width: 400px;

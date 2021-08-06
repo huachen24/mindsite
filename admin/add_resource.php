@@ -128,7 +128,7 @@
 
     </table>
     <div class='buttons'>
-            <button><a href='index.php'>Back</a></button>
+            <a href='index.php'>Back</a>
             <button type='submit' name='submit'>Add</button>
     </div>
 </form>

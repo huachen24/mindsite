@@ -14,6 +14,7 @@ if (isset($_SESSION["user"])) {
     <div class='action_list'>
     <a href='add_resource.php'>Add a resource</a>
     <a href='edit_resource.php'>Edit/Delete resources</a>
+    <a href='manage_quotes.php'>Manage quotes</a>
     <a href='approve_ratings.php'>Approve ratings</a>
     <a href='track_resources.php'>Track resources</a>
     </div>

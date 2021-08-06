@@ -20,7 +20,7 @@
         <input type='password' id='pwd2' name='pwd2' placeholder='Confirm new password'>
     </div>
     <div class='buttons'>
-    <button><a href='index.php'>Back</a></button>
+    <button><a href='settings.php'>Back</a></button>
     <button type='submit' name='submit'>Change Password</button>
     </div>
 </form>

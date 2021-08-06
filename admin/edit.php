@@ -142,11 +142,14 @@ if (isset($_POST['success'])) {
                         echo "nil</td>
                         <td><input type='file' id='img' name='img' accept='.png,.jpg,.jpeg,.svg'></td></tr>";
                     } else {
-                        echo "<img src='../profiles/".$row['rid'].".".$row['image']."'></td>
+                        echo "<img src='../profiles/".$row['rid'].".".$row['image']."' width='320px'></td>
                         <td><input type='file' id='img' name='img' accept='.png,.jpg,.jpeg,.svg'></td></tr>";
                     }
                     echo "</table>
-                    <input type=submit value=submit>
+                    <div class='buttons'>
+                    <a href='includes/delete_resource.inc.php?rid=".$row['rid']."'>Delete this resource</a>
+                    <button type='submit' name='submit'>Edit</button>
+                    </div>
                     </form>";
                 }
             } else {

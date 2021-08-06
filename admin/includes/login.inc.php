@@ -4,7 +4,7 @@
     $user = $_POST['user'];
     $pwd = $_POST['pwd'];
     $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user' AND approval = 1");
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             if (password_verify($pwd, $row['pwd'])) {

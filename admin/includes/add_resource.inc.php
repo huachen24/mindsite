@@ -93,7 +93,6 @@
             echo "SUCCESS";
         }
         else {
-            echo mysqli_error($conn);
             header("Location: ../add_resource.php?error=execute");
             exit();
         }

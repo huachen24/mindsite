@@ -6,6 +6,7 @@
 
 <div class='main'>
 <div id='approve_ratings' class='sidebar'>
+<h3>Approve ratings</h3>
 <table>
     <tr>
         <th>Resource</th>
