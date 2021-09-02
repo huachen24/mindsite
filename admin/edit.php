@@ -15,6 +15,8 @@ if (isset($_POST['success'])) {
     ($_POST['shortdesc'] ? '| short description ' : '').
     ($_POST['longdesc'] ? '| long description ' : '').
     ($_POST['price'] ? '| price ' : '').
+    ($_POST['pricedesc'] ? '| pricedesc ' : '').
+    ($_POST['location'] ? '| location ' : '').
     ($_POST['address'] ? '| address ' : '').
     ($_POST['weblink'] ? '| weblink ' : '').
     ($_POST['agelower'] ? '| lower age limit ' : '').
@@ -62,7 +64,49 @@ if (isset($_POST['success'])) {
 
                     <tr><th>Price</th>
                     <td>".$row['price']."</td>
-                    <td><input type='text' name='price'></td></tr>
+                    <td>
+                        <label class='radio-label'>Free
+                            <input type='radio' name='price' value='0'>
+                            <span class='radio'></span>
+                        </label>
+                        <label class='radio-label'>Paid
+                            <input type='radio' name='price' value='1'>
+                            <span class='radio'></span>
+                        </label>
+                    </td></tr>
+
+                    <tr><th>Price Description</th>
+                    <td>".$row['pricedesc']."</td>
+                    <td><input type='text' name='pricedesc'></td></tr>
+
+                    <tr><th>Location</th>
+                    <td>".$row['location']."</td>
+                    <td>
+                        <label class='radio-label'>North
+                            <input type='checkbox' name='location[]' value='North'>
+                            <span class='check'></span>
+                        </label>
+                        <label class='radio-label'>South
+                            <input type='checkbox' name='location[]' value='South'>
+                            <span class='check'></span>
+                        </label>
+                        <label class='radio-label'>East
+                            <input type='checkbox' name='location[]' value='East'>
+                            <span class='check'></span>
+                        </label>
+                        <label class='radio-label'>West
+                            <input type='checkbox' name='location[]' value='West'>
+                            <span class='check'></span>
+                        </label>
+                        <label class='radio-label'>Central
+                            <input type='checkbox' name='location[]' value='Central'>
+                            <span class='check'></span>
+                        </label>
+                        <label class='radio-label'>Online
+                            <input type='checkbox' name='location[]' value='Online'>
+                            <span class='check'></span>
+                        </label>
+                    </td></tr>
 
                     <tr><th>Address</th>
                     <td>".$row['address']."</td>
@@ -83,7 +127,7 @@ if (isset($_POST['success'])) {
                                 $queryResult = mysqli_num_rows($resultfilter);
                                 if ($queryResult > 0) {
                                     while ($rowfilter = mysqli_fetch_assoc($resultfilter)) {
-                                        echo "<label><input type='checkbox' name='type[]' value='".$rowfilter['type']."'>".$rowfilter['type']."</label>";
+                                        echo "<label class='radio-label'>".$rowfilter['type']."<input type='checkbox' name='type[]' value='".$rowfilter['type']."'><span class='check'></span></label>";
                                     }
                                 } else {
                                     echo "No type filters";
@@ -102,7 +146,7 @@ if (isset($_POST['success'])) {
                                 $queryResult = mysqli_num_rows($resultfilter);
                                 if ($queryResult > 0) {
                                     while ($rowfilter = mysqli_fetch_assoc($resultfilter)) {
-                                        echo "<label><input type='checkbox' name='specialty[]' value='".$rowfilter['specialty']."'>".$rowfilter['specialty']."</label>";
+                                        echo "<label class='radio-label'>".$rowfilter['specialty']."<input type='checkbox' name='specialty[]' value='".$rowfilter['specialty']."'><span class='check'></span></label>";
                                     }
                                 } else {
                                     echo "No specialty filters";
@@ -121,7 +165,7 @@ if (isset($_POST['success'])) {
                                 $queryResult = mysqli_num_rows($resultfilter);
                                 if ($queryResult > 0) {
                                     while ($rowfilter = mysqli_fetch_assoc($resultfilter)) {
-                                        echo "<label><input type='checkbox' name='modality[]' value='".$rowfilter['modality']."'>".$rowfilter['modality']."</label>";
+                                        echo "<label class='radio-label'>".$rowfilter['modality']."<input type='checkbox' name='modality[]' value='".$rowfilter['modality']."'><span class='check'></span></label>";
                                     }
                                 } else {
                                     echo "No modality filters";

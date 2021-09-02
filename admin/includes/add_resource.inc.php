@@ -25,7 +25,19 @@
     $shortdesc = $_POST['shortdesc'];
     $longdesc = $_POST['longdesc'];
     $price = $_POST['price'];
+    $pricedesc = $_POST['pricedesc'];
     $address = $_POST['address'];
+
+    if (isset($_POST['location'])) {
+        $locationarray = $_POST['location'];
+        $location = "'".$locationarray[0]."'";
+        for ($i=1; $i<count($locationarray); $i++) {
+            $location .= ", .".$locationarray[$i]."'";
+        }
+    } else {
+        $location = "";
+    }
+    
     $weblink = $_POST['weblink'];
     
     if (isset($_POST['agelower'])) {
@@ -42,52 +54,38 @@
 
     if (isset($_POST['type'])) {
         $typearray = $_POST['type'];
-        $type = "['".$typearray[0]."'";
+        $type = "'".$typearray[0]."'";
         for ($i=1; $i<count($typearray); $i++) {
             $type .= ", '".$typearray[$i]."'";
         }
-        $type .= "]";
     } else {
-        $type = "[]";
+        $type = "";
     }
 
-    if (isset($_POST['modality'])) {
-        $modalityarray = $_POST['modality'];
-        $modality = "['".$modalityarray[0]."'";
-        for ($i=1; $i<count($modalityarray); $i++) {
-            $modality .= ", '".$modalityarray[$i]."'";
-        }
-        $modality .= "]";
-    } else {
-        $modality = "[]";
-    }
-    
     if (isset($_POST['specialty'])) {
         $specialtyarray = $_POST['specialty'];
-        $specialty = "[\"".$specialtyarray[0]."\"";
+        $specialty = "'".$specialtyarray[0]."'";
         for ($i=1; $i<count($specialtyarray); $i++) {
-            $specialty .= ", \"".$specialtyarray[$i]."\"";
+            $specialty .= ", '".$specialtyarray[$i]."'";
         }
-        $specialty .= "]";
     } else {
-        $specialty = "[]";
+        $specialty = "";
     }
 
     if (isset($_POST['modality'])) {
         $modalityarray = $_POST['modality'];
-        $modality = "['".$modalityarray[0]."'";
+        $modality = "'".$modalityarray[0]."'";
         for ($i=1; $i<count($modalityarray); $i++) {
             $modality .= ", '".$modalityarray[$i]."'";
         }
-        $modality .= "]";
     } else {
-        $modality = "[]";
+        $modality = "";
     }
 
-    $sql = "INSERT INTO resources (`title`, `shortdesc`, `longdesc`, `price`, `address`, `weblink`, `type`, `specialty`, `modality`, `agelower`, `ageupper`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO resources (`title`, `shortdesc`, `longdesc`, `price`, `pricedesc`, `address`, `location`, `weblink`, `type`, `specialty`, `modality`, `agelower`, `ageupper`, `image`) VALUES (?, ?, ?, ?, ?, ?, JSON_ARRAY(?), ?, JSON_ARRAY(?), JSON_ARRAY(?), JSON_ARRAY(?), ?, ?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "sssssssssiis", $title, $shortdesc, $longdesc, $price, $address, $weblink, $type, $specialty, $modality, $agelower, $ageupper, $image);
+        mysqli_stmt_bind_param($stmt, "sssisssssssiis", $title, $shortdesc, $longdesc, $price, $pricedesc, $address, $location, $weblink, $type, $specialty, $modality, $agelower, $ageupper, $image);
 
         if (mysqli_stmt_execute($stmt)) {
             echo "SUCCESS";

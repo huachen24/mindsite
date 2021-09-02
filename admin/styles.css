@@ -149,8 +149,7 @@ button:hover{
     top: 0;
     width: 100%;
     padding: 2em;
-    /* padding-left: 3em;
-    padding-right: 3em; */
+    z-index: 3;
     font-size: 1em;
     font-family: Noto Sans SC;
     text-transform: uppercase;
@@ -239,6 +238,96 @@ button:hover{
 /****************/
 /* Add Resource */
 /****************/
+
+.radio-label {
+    display: inline;
+    position: relative;
+    padding-left: 1.25em;
+    cursor: pointer;
+    margin: 0em 0.5em;
+    font-family: Varela Round;
+    color: DimGray;
+}
+  
+.radio-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.radio-label:hover input ~ .radio {
+    background-color: #ccc;
+}
+  
+.radio-label input:checked ~ .radio {
+    background-color: SandyBrown;
+}
+  
+.radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.radio-label input:checked ~ .radio:after {
+    display: block;
+}
+
+.radio-label .radio:after {
+    top: 0.25em;
+    left: 0.25em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: white;
+}
+
+.check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: #eee;
+    border-radius: 10%;
+}
+
+.radio-label:hover input ~ .check {
+    background-color: #ccc;
+}
+  
+.radio-label input:checked ~ .check {
+    background-color: SandyBrown;
+}
+  
+.check:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.radio-label input:checked ~ .check:after {
+    display: block;
+}
+
+.radio-label .check:after {
+    top: 0.25em;
+    left: 0.25em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 10%;
+    background: white;
+}
 
 .drop-content {
     display: flex;

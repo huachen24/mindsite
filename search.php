@@ -47,9 +47,7 @@
             $sql = "SELECT * FROM resources WHERE title LIKE '%$search%'";
             if (isset($_POST['price'])) {
                 $price = $_POST['price'];
-                if ($price != 500) {
-                    $sql .= " AND price <= '%$price%'";
-                }
+                $sql .= " AND price = '%$price%'";
             }
             if (isset($_POST['age'])) {
                 $age = $_POST['age'];
@@ -57,22 +55,42 @@
                     $sql .= " AND ($age BETWEEN age')";
                 }
             }
+            if (isset($_POST['type'])) {
+                $typearray = $_POST['type'];
+                $types = "(JSON_CONTAINS(type, JSON_ARRAY('".$typearray[0]."'))";
+                for ($i=1; $i<count($typearray); $i++) {
+                    $types .= " OR JSON_CONTAINS(type, JSON_ARRAY('".$typearray[$i]."'))";
+                }
+                $types .= ")";
+                $sql .= " AND $types";
+            }
             if (isset($_POST['specialty'])) {
-                $specialty = mysqli_real_escape_string($conn, $_POST['specialty']);
-                $sql .= " AND JSON_CONTAINS(specialty, '%$specialty%')";
+                $specialtyarray = $_POST['specialty'];
+                $specs = "(JSON_CONTAINS(specialty, JSON_ARRAY('".$specialtyarray[0]."'))";
+                for ($i=1; $i<count($specialtyarray); $i++) {
+                    $specs .= " OR JSON_CONTAINS(specialty, JSON_ARRAY('".$specialtyarray[$i]."'))";
+                }
+                $specs .= ")";
+                $sql .= " AND $specs";
             }
             if (isset($_POST['modality'])) {
-                $modality = mysqli_real_escape_string($conn, $_POST['modality']);
-                $sql .= " AND JSON_CONTAINS(modality, '%$modality%')";
+                $modalityarray = $_POST['modality'];
+                $modalities = "(JSON_CONTAINS(modality, JSON_ARRAY('".$modalityarray[0]."'))";
+                for ($i=1; $i<count($modalityarray); $i++) {
+                    $modalities .= " OR JSON_CONTAINS(modality, JSON_ARRAY('".$modalityarray[$i]."'))";
+                }
+                $modalities .= ")";
+                $sql .= " AND $modalities";
             }
-            // if (isset($_POST['category'])) {
-            //     $category = mysqli_real_escape_string($conn, $_POST['category']);
-            //     $sql .= " AND JSON_CONTAINS(category, '%$category%')";
-            // }
-            // if (isset($_POST['location'])) {
-            //     $location = mysqli_real_escape_string($conn, $_POST['location']);
-            //     $sql .= " AND JSON_CONTAINS(location, '%$location%')";
-            // }
+            if (isset($_POST['location'])) {
+                $locationarray = $_POST['location'];
+                $locations = "(JSON_CONTAINS(location, JSON_ARRAY('".$locationarray[0]."'))";
+                for ($i=1; $i<count($locationarray); $i++) {
+                    $locations .= " OR JSON_CONTAINS(location, JSON_ARRAY('".$locationarray[$i]."'))";
+                }
+                $locations .= ")";
+                $sql .= " AND $locations";
+            }
             $sql .= " ORDER BY clicks DESC, title ASC";
             return $sql;
         }

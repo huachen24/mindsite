@@ -267,13 +267,6 @@ body {
     flex: 1;
 }
 
-.price-label {
-    display: flex;
-    justify-content: space-between;
-    font-family: varela round;
-    color: white;
-}
-
 .categories {
     display: flex;
     flex-wrap: wrap;

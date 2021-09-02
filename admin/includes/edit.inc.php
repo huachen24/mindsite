@@ -81,7 +81,7 @@
         $price = $_POST['price'];
         $sql = generateUpdateQuery("price");
         if ($stmt = mysqli_prepare($conn, $sql)) {
-            mysqli_stmt_bind_param($stmt, "si", $price, $rid);
+            mysqli_stmt_bind_param($stmt, "ii", $price, $rid);
 
             if (mysqli_stmt_execute($stmt)) {
                 $successprice = TRUE;
@@ -94,6 +94,44 @@
         }
         mysqli_stmt_close($stmt);
     }
+
+    if (!empty($_POST['pricedesc'])) {
+        $pricedesc = $_POST['pricedesc'];
+        $sql = generateUpdateQuery("pricedesc");
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $pricedesc, $rid);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $successpricedesc = TRUE;
+            }
+            else {
+                $successpricedesc = FALSE;
+            }
+        } else {
+            $successpricedesc = FALSE;
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+    $locationarray = $_POST['location'];
+    $location = "'".$locationarray[0]."'";
+    for ($i=1; $i<count($locationarray); $i++) {
+        $location .= ", '".$locationarray[$i]."'";
+    }
+    $sql = generateJSONUpdateQuery("location");
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "si", $location, $rid);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $successlocation = TRUE;
+        }
+        else {
+            $successlocation = FALSE;
+        }
+    } else {
+        $successlocation = FALSE;
+    }
+    mysqli_stmt_close($stmt);
 
     if (!empty($_POST['address'])) {
         $address = $_POST['address'];
@@ -168,12 +206,11 @@
     }
 
     $typearray = $_POST['type'];
-    $type = "['".$typearray[0]."'";
+    $type = "'".$typearray[0]."'";
     for ($i=1; $i<count($typearray); $i++) {
         $type .= ", '".$typearray[$i]."'";
     }
-    $type .= "]";
-    $sql = generateUpdateQuery("type");
+    $sql = generateJSONUpdateQuery("type");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $type, $rid);
 
@@ -190,12 +227,11 @@
 
 
     $specialtyarray = $_POST['specialty'];
-    $specialty = "['".$specialtyarray[0]."'";
+    $specialty = "'".$specialtyarray[0]."'";
     for ($i=1; $i<count($specialtyarray); $i++) {
         $specialty .= ", '".$specialtyarray[$i]."'";
     }
-    $specialty .= "]";
-    $sql = generateUpdateQuery("specialty");
+    $sql = generateJSONUpdateQuery("specialty");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $specialty, $rid);
 
@@ -212,12 +248,11 @@
 
 
     $modalityarray = $_POST['modality'];
-    $modality = "['".$modalityarray[0]."'";
+    $modality = "'".$modalityarray[0]."'";
     for ($i=1; $i<count($modalityarray); $i++) {
         $modality .= ", '".$modalityarray[$i]."'";
     }
-    $modality .= "]";
-    $sql = generateUpdateQuery("modality");
+    $sql = generateJSONUpdateQuery("modality");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $modality, $rid);
 
@@ -288,7 +323,9 @@
     <input type='hidden' name='shortdesc' value='<?php echo $successshortdesc?>'>
     <input type='hidden' name='longdesc' value='<?php echo $successlongdesc?>'>
     <input type='hidden' name='price' value='<?php echo $successprice?>'>
+    <input type='hidden' name='pricedesc' value='<?php echo $successpricedesc?>'>
     <input type='hidden' name='address' value='<?php echo $successaddress?>'>
+    <input type='hidden' name='location' value='<?php echo $successlocation?>'>
     <input type='hidden' name='weblink' value='<?php echo $successweblink?>'>
     <input type='hidden' name='agelower' value='<?php echo $successagelower?>'>
     <input type='hidden' name='ageupper' value='<?php echo $successageupper?>'>
@@ -309,4 +346,7 @@
         return "UPDATE resources SET `".$col."`=? WHERE `rid`=?";
     }
 
+    function generateJSONUpdateQuery($col) {
+        return "UPDATE resources SET `".$col."`= JSON_ARRAY(?) WHERE `rid`=?";
+    }
 ?>

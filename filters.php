@@ -2,12 +2,17 @@
 
     <div id='filter1'>
         <div class='price-filter'>
-            <label>Max cost: <br><input type='number' min='0' max='500' id='price' name='price' value='500'></label><br>
-            <input type='range' min='0' max='500' class='slider' id='priceRange' value='500'>
-            <div class='price-label'>
-                <div>$0</div>
-                <div>$500</div>
-            </div>
+            <label>Cost: <br>
+                <label>    
+                    <input type='checkbox' name='price[]' value='2'>All
+                </label>
+                <label>
+                    <input type='checkbox' name='price[]' value='0'>Free
+                </label>
+                <label>
+                    <input type='checkbox' name='price[]' value='1'>Paid
+                </label>
+            </label>
         </div>
 
         <div class='age-filter'>
@@ -20,22 +25,25 @@
             <label>Location: <br>
                 <div class='categories'>
                     <label>
-                        <input type='checkbox' name='location' value='north'>North
+                        <input type='checkbox' name='location[]' value='all'>All
                     </label>
                     <label>
-                        <input type='checkbox' name='location' value='south'>South
+                        <input type='checkbox' name='location[]' value='north'>North
                     </label>
                     <label>
-                        <input type='checkbox' name='location' value='east'>East
+                        <input type='checkbox' name='location[]' value='south'>South
                     </label>
                     <label>
-                        <input type='checkbox' name='location' value='west'>West
+                        <input type='checkbox' name='location[]' value='east'>East
                     </label>
                     <label>
-                        <input type='checkbox' name='location' value='central'>Central
+                        <input type='checkbox' name='location[]' value='west'>West
                     </label>
                     <label>
-                        <input type='checkbox' name='location' value='online'>Online
+                        <input type='checkbox' name='location[]' value='central'>Central
+                    </label>
+                    <label>
+                        <input type='checkbox' name='location[]' value='online'>Online
                     </label>
                 </div>
             </label>
@@ -55,7 +63,7 @@
                             $queryResult = mysqli_num_rows($result);
                             if ($queryResult > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<label><input type='checkbox' name='specialty' value='".$row['specialty']."'>".$row['specialty']."</label>";
+                                    echo "<label><input type='checkbox' name='specialty[]' value='".$row['specialty']."'>".$row['specialty']."</label>";
                                 }
                             } else {
                                 echo "No specialty filters";
@@ -78,7 +86,7 @@
                             $queryResult = mysqli_num_rows($result);
                             if ($queryResult > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<label><input type='checkbox' name='modality' value='".$row['modality']."'>".$row['modality']."</label>";
+                                    echo "<label><input type='checkbox' name='modality[]' value='".$row['modality']."'>".$row['modality']."</label>";
                                 }
                             } else {
                                 echo "No modality filters";
@@ -138,17 +146,6 @@
                 a[i].style.display = "none";
             }
         }
-    }
-
-    var slider = document.getElementById("priceRange");
-    var price = document.getElementById("price");
-
-    slider.oninput = function() {
-        price.value = this.value;
-    }
-
-    price.oninput = function() {
-        slider.value = this.value;
     }
 
 </script>

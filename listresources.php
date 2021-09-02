@@ -14,9 +14,9 @@
             </form>
 
             <div class='keywords'>";
-                $keywords = json_decode($resource['specialty']);
+                $keywords = explode(", ", substr($resource['specialty'], 2, -2));
                 for ($i = 0; $i < count($keywords); $i++) {
-                    echo "<div class='keyword'>".$keywords[$i]."</div>";
+                    echo "<div class='keyword'>".substr($keywords[$i], 1, -1)."</div>";
                 }
             echo "</div>
             <p>".$resource['shortdesc']."</p>";
