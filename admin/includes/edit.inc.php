@@ -114,10 +114,7 @@
     }
 
     $locationarray = $_POST['location'];
-    $location = "'".$locationarray[0]."'";
-    for ($i=1; $i<count($locationarray); $i++) {
-        $location .= ", '".$locationarray[$i]."'";
-    }
+    $location = json_encode($locationarray);
     $sql = generateJSONUpdateQuery("location");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $location, $rid);
@@ -206,10 +203,7 @@
     }
 
     $typearray = $_POST['type'];
-    $type = "'".$typearray[0]."'";
-    for ($i=1; $i<count($typearray); $i++) {
-        $type .= ", '".$typearray[$i]."'";
-    }
+    $type = json_encode($typearray);
     $sql = generateJSONUpdateQuery("type");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $type, $rid);
@@ -227,10 +221,7 @@
 
 
     $specialtyarray = $_POST['specialty'];
-    $specialty = "'".$specialtyarray[0]."'";
-    for ($i=1; $i<count($specialtyarray); $i++) {
-        $specialty .= ", '".$specialtyarray[$i]."'";
-    }
+    $specialty = json_encode($specialtyarray);
     $sql = generateJSONUpdateQuery("specialty");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $specialty, $rid);
@@ -248,10 +239,7 @@
 
 
     $modalityarray = $_POST['modality'];
-    $modality = "'".$modalityarray[0]."'";
-    for ($i=1; $i<count($modalityarray); $i++) {
-        $modality .= ", '".$modalityarray[$i]."'";
-    }
+    $modality = json_encode($modalityarray);
     $sql = generateJSONUpdateQuery("modality");
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $modality, $rid);
@@ -347,6 +335,6 @@
     }
 
     function generateJSONUpdateQuery($col) {
-        return "UPDATE resources SET `".$col."`= JSON_ARRAY(?) WHERE `rid`=?";
+        return "UPDATE resources SET `".$col."`= CAST(? AS JSON) WHERE `rid`=?";
     }
 ?>

@@ -30,12 +30,9 @@
 
     if (isset($_POST['location'])) {
         $locationarray = $_POST['location'];
-        $location = "'".$locationarray[0]."'";
-        for ($i=1; $i<count($locationarray); $i++) {
-            $location .= ", .".$locationarray[$i]."'";
-        }
+        $location = json_encode($locationarray);
     } else {
-        $location = "";
+        $location = array();
     }
     
     $weblink = $_POST['weblink'];
@@ -54,35 +51,26 @@
 
     if (isset($_POST['type'])) {
         $typearray = $_POST['type'];
-        $type = "'".$typearray[0]."'";
-        for ($i=1; $i<count($typearray); $i++) {
-            $type .= ", '".$typearray[$i]."'";
-        }
+        $type = json_encode($typearray);
     } else {
-        $type = "";
+        $type = array();
     }
 
     if (isset($_POST['specialty'])) {
         $specialtyarray = $_POST['specialty'];
-        $specialty = "'".$specialtyarray[0]."'";
-        for ($i=1; $i<count($specialtyarray); $i++) {
-            $specialty .= ", '".$specialtyarray[$i]."'";
-        }
+        $specialty = json_encode($specialtyarray);
     } else {
-        $specialty = "";
+        $specialty = array();
     }
 
     if (isset($_POST['modality'])) {
         $modalityarray = $_POST['modality'];
-        $modality = "'".$modalityarray[0]."'";
-        for ($i=1; $i<count($modalityarray); $i++) {
-            $modality .= ", '".$modalityarray[$i]."'";
-        }
+        $modality = json_encode($modalityarray);
     } else {
-        $modality = "";
+        $modality = array();
     }
 
-    $sql = "INSERT INTO resources (`title`, `shortdesc`, `longdesc`, `price`, `pricedesc`, `address`, `location`, `weblink`, `type`, `specialty`, `modality`, `agelower`, `ageupper`, `image`) VALUES (?, ?, ?, ?, ?, ?, JSON_ARRAY(?), ?, JSON_ARRAY(?), JSON_ARRAY(?), JSON_ARRAY(?), ?, ?, ?)";
+    $sql = "INSERT INTO resources (`title`, `shortdesc`, `longdesc`, `price`, `pricedesc`, `address`, `location`, `weblink`, `type`, `specialty`, `modality`, `agelower`, `ageupper`, `image`) VALUES (?, ?, ?, ?, ?, ?, CAST(? AS JSON), ?, CAST(? AS JSON), CAST(? AS JSON), CAST(? AS JSON), ?, ?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "sssisssssssiis", $title, $shortdesc, $longdesc, $price, $pricedesc, $address, $location, $weblink, $type, $specialty, $modality, $agelower, $ageupper, $image);
