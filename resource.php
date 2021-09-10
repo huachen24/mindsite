@@ -18,10 +18,14 @@
             echo "<div class='entry-details'>";
             echo "<h1><a href='".$resource['weblink']."' id='click-".$resource['rid']."'>".$resource['title']."</a></h1>
             <table>
-            <tr><th>Age range: </th>
-            <td>".$resource['agelower']."-".$resource['ageupper']."</td></tr>
-            <tr><th>Price: </th>
-            <td>".$resource['price']."</td></tr>
+            <tr><th>Age range: </th>";
+            if ($resource['agelower'] == 0 && $resource['ageupper'] == 100) {
+                echo "<td>All ages</td></tr>";
+            } else {
+                echo "<td>".$resource['agelower']." - ".$resource['ageupper']."</td></tr>";
+            }
+            echo "<tr><th>Price: </th>
+            <td>".$resource['pricedesc']."</td></tr>
             <tr><th>Ratings: </th>
             <td><div class='ratings'>";
             if ($resource['ratingcount']==0) {

@@ -235,7 +235,7 @@ body {
     justify-content: space-between;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.7s ease-out;
     background-color:SandyBrown;
     color: white;
     font-family: Varela Round;

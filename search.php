@@ -47,12 +47,12 @@
             $sql = "SELECT * FROM resources WHERE title LIKE '%$search%'";
             if (isset($_POST['price'])) {
                 $price = $_POST['price'];
-                $sql .= " AND price = '%$price%'";
+                $sql .= " AND price = $price";
             }
             if (isset($_POST['age'])) {
                 $age = $_POST['age'];
                 if ($age != 0) {
-                    $sql .= " AND ($age BETWEEN age')";
+                    $sql .= " AND ($age BETWEEN agelower AND ageupper)";
                 }
             }
             if (isset($_POST['type'])) {

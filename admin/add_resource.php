@@ -158,10 +158,10 @@
     </div></td></tr>
 
     <tr><th>Lower Age Limit</th>
-    <td><input type='number' min='1' max='100' name='agelower'></td></tr>
+    <td><input type='number' min='1' max='100' name='agelower' value='0'></td></tr>
 
     <tr><th>Upper Age Limit</th>
-    <td><input type='number' min='1' max='100' name='ageupper'></td></tr>
+    <td><input type='number' min='1' max='100' name='ageupper' value='100'></td></tr>
 
     <tr><th>Image</th>
     <td><input type='file' id='img' name='img' accept='.png,.jpg,.jpeg,.svg'></td></tr>

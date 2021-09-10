@@ -4,13 +4,13 @@
         <div class='price-filter'>
             <label>Cost: <br>
                 <label>    
-                    <input type='checkbox' name='price[]' value='2'>All
+                    <input type='radio' name='price' value='2'>All
                 </label>
                 <label>
-                    <input type='checkbox' name='price[]' value='0'>Free
+                    <input type='radio' name='price' value='0'>Free
                 </label>
                 <label>
-                    <input type='checkbox' name='price[]' value='1'>Paid
+                    <input type='radio' name='price' value='1'>Paid
                 </label>
             </label>
         </div>
@@ -25,25 +25,25 @@
             <label>Location: <br>
                 <div class='categories'>
                     <label>
-                        <input type='checkbox' name='location[]' value='all'>All
+                        <input type='checkbox' name='location[]' value='All'>All
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='north'>North
+                        <input type='checkbox' name='location[]' value='North'>North
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='south'>South
+                        <input type='checkbox' name='location[]' value='South'>South
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='east'>East
+                        <input type='checkbox' name='location[]' value='East'>East
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='west'>West
+                        <input type='checkbox' name='location[]' value='West'>West
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='central'>Central
+                        <input type='checkbox' name='location[]' value='Central'>Central
                     </label>
                     <label>
-                        <input type='checkbox' name='location[]' value='online'>Online
+                        <input type='checkbox' name='location[]' value='Online'>Online
                     </label>
                 </div>
             </label>
@@ -51,6 +51,29 @@
     </div>
 
     <div id='filter2'>
+        <div class='type-filter'>
+            <label>Types: <br>
+                <input type="text" placeholder="Search..." id="typesearch" onkeyup="typeFilter()"><br>
+                <div id="types" class="drop-content">
+                    <?php
+                        $result = mysqli_query($conn, "SELECT * FROM types");
+                        if ($result == FALSE) {
+                            echo "No type filters";
+                        } else {
+                            $queryResult = mysqli_num_rows($result);
+                            if ($queryResult > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<label><input type='checkbox' name='type[]' value='".$row['type']."'>".$row['type']."</label>";
+                                }
+                            } else {
+                                echo "No type filters";
+                            }
+                        }
+                    ?>
+                </div>
+            </label>
+        </div>
+    
         <div class='specialty-filter'>
             <label>Specialties: <br>
                 <input type="text" placeholder="Search..." id="specialtysearch" onkeyup="specialtyFilter()"><br>
@@ -112,7 +135,23 @@
         if (filters.style.maxHeight) {
             filters.style.maxHeight = null;
         } else {
-            filters.style.maxHeight = '1500px';
+            filters.style.maxHeight = '1800px';
+        }
+    }
+
+    function typeFilter() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("typesearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("types");
+        a = div.getElementsByTagName("label");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
         }
     }
 
