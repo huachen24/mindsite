@@ -14,7 +14,7 @@
 
 <div class="resource-container">
     <?php
-        if (isset($_POST['search']) && !empty($_POST['search'])) {
+        if (isset($_POST['search'])) {
             $search = mysqli_real_escape_string($conn, $_POST['search']);
             $sql = generateSQL($conn);
             $result = mysqli_query($conn, $sql);
@@ -45,7 +45,7 @@
         function generateSQL(mysqli $conn) {
             $search = mysqli_real_escape_string($conn, $_POST['search']);
             $sql = "SELECT * FROM resources WHERE title LIKE '%$search%'";
-            if (isset($_POST['price'])) {
+            if (isset($_POST['price']) && $_POST['price'] != 2) {
                 $price = $_POST['price'];
                 $sql .= " AND price = $price";
             }
@@ -82,7 +82,7 @@
                 $modalities .= ")";
                 $sql .= " AND $modalities";
             }
-            if (isset($_POST['location'])) {
+            if (isset($_POST['location']) && $_POST['location'][0] != "All") {
                 $locationarray = $_POST['location'];
                 $locations = "(JSON_CONTAINS(location, JSON_ARRAY('".$locationarray[0]."'))";
                 for ($i=1; $i<count($locationarray); $i++) {
